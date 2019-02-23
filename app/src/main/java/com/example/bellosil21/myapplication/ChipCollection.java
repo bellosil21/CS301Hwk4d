@@ -6,5 +6,13 @@ public class ChipCollection {
     public ChipCollection(int amount){
         this.amount = amount;
     }
+
+    public int getChips(){
+        return amount;
+    }
+
+    public void setChips(int newChipAmount){
+        amount = newChipAmount;
+    }
 }
 

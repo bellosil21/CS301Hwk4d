@@ -3,22 +3,18 @@ package com.example.bellosil21.myapplication;
 import java.util.ArrayList;
 
 public class GameActions {
-    private ArrayList<Card> playerHand = null;
-    private int chips;
 
-    public GameActions(int startingChips){
-        chips = startingChips;
-    }
 
-    public boolean placeBets(int chipsBetIn){
-        if (chipsBetIn > chips){ return false; }
+    public boolean placeBets(int chipsBetIn, ChipCollection playersChips){
+        if (chipsBetIn > playersChips.getChips()){ return false; }
 
-        chips -= chipsBetIn;
+        int newChipAmount = playersChips.getChips() - chipsBetIn;
+        playersChips.setChips(newChipAmount);
 
         return true;
     }
 
-    public boolean fold (boolean isTurn, boolean inGame){
+    public boolean fold(boolean isTurn, boolean inGame){
         if (isTurn) {
             return true;
         }
@@ -46,9 +42,10 @@ public class GameActions {
         }
     }
 
-    public boolean call(int leftToBet){
-        if (chips >= leftToBet){
-            chips -= leftToBet;
+    public boolean call(int leftToBet, ChipCollection playerChips){
+        if (playerChips.getChips() >= leftToBet){
+            int newChipAmount = playerChips.getChips() - leftToBet;
+            playerChips.setChips(newChipAmount);
             return true;
         }
         return false;
