@@ -13,6 +13,16 @@ public class Hand implements Serializable{
         this.hole2 = hole2;
     }
 
+    /** Hand
+     *
+     * Copy constructor
+     * Copies the cards into a new hand
+     */
+    public Hand(Hand toCopy) {
+        hole1 = new Card(toCopy.hole1);
+        hole2 = new Card(toCopy.hole2);
+    }
+
     /** method is incomplete
      * Must find a way to be able to print the
      * given cards. we can either pass a string id

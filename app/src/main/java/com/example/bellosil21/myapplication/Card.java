@@ -56,6 +56,17 @@ public class Card implements Serializable{
         this.rank = rank;
     }
 
+    /** Card
+     *
+     * Copy constructor
+     * Copies the suit and rank into a new card
+     */
+    public Card(Card card) {
+        this.suit = card.getSuit();
+        this.rank = card.getRank();
+
+    }
+
     public Rank getRank(){
         return rank;
     }

@@ -9,6 +9,15 @@ public class ChipCollection implements Serializable{
         this.amount = amount;
     }
 
+    /** ChipCollection
+     *
+     * Copy constructor
+     * Copies the chip amount in a new ChipCollection
+     */
+    public ChipCollection(ChipCollection toCopy) {
+        amount = toCopy.amount;
+    }
+
     public int getChips(){
         return amount;
     }
