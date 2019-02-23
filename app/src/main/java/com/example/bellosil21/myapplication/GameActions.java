@@ -3,8 +3,15 @@ package com.example.bellosil21.myapplication;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * The actions a player can make.
+ *
+ * @author Patrick Bellosillo
+ * @author Jordan Ho
+ * @author Kevin Hoser
+ * @author Gabe Marcial
+ */
 public class GameActions implements Serializable {
-
 
     public boolean placeBets(int chipsBetIn, ChipCollection playersChips){
         if (chipsBetIn > playersChips.getChips()){ return false; }

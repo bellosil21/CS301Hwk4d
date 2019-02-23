@@ -2,8 +2,19 @@ package com.example.bellosil21.myapplication;
 
 import java.io.Serializable;
 
-public class Card implements Serializable{
+/**
+ * Defines a playing card, which is composed of a suit and rank
+ *
+ * @author Patrick Bellosillo
+ * @author Jordan Ho
+ * @author Kevin Hoser
+ * @author Gabe Marcial
+ */
+public class Card implements Serializable {
 
+    /**
+     * Defines the type of suits in a standard 52 card deck.
+     */
     public enum Suit{
         DIAMONDS,
         SPADES,
@@ -11,12 +22,16 @@ public class Card implements Serializable{
         HEART;
 
         public static final int numOfSuits = 4;
+
         public String toString(){
             return this.name();
         }
     }
 
-    // TODO: Add Reference
+    /**
+     * Defines the type of rank in a standard 52 card deck
+     * and assigns an integer value to weight enum.
+     */
     public enum Rank{
         TWO(1),
         THREE(2),
@@ -46,20 +61,37 @@ public class Card implements Serializable{
         public String toString(){
             return this.name();
         }
+
+        /**
+         * External Citation
+         *  Date:     22 Feburary 2019
+         *  Problem:  Did not know how to give an enum a ranking.
+         *  Resource: https://stackoverflow.com/questions/8811815/is-it-
+         *            possible-to-assign-numeric-value-to-an-enum-in-java
+         *  Solution: Implemented the code in this example.
+         */
     }
+
+    /** instance vars */
     private Suit suit;
     private Rank rank;
 
-
+    /**
+     * A card is composed of a suit an rank.
+     *
+     * @param suit  a suit (diamonds, spades, clubs, hearts_
+     * @param rank  a rank two through ace
+     */
     public Card(Suit suit, Rank rank){
         this.suit = suit;
         this.rank = rank;
     }
 
-    /** Card
-     *
+    /**
      * Copy constructor
-     * Copies the suit and rank into a new card
+     * Copies the suit and rank into a new card.
+     *
+     * @param card  the Card to copy
      */
     public Card(Card card) {
         this.suit = card.getSuit();
@@ -76,10 +108,11 @@ public class Card implements Serializable{
     }
 
     /**
-     * This to string doesnt make too much sense yet
+     * TODO: This to string doesnt make too much sense yet
      * We have to find a way to print what the suit and rank
      * is for the tostring method....
-     * @return
+     *
+     * @return a message representing a card
      */
     public String toString(){
         return "Suit: " + suit.toString() + "\nRank:" + rank.toString();
