@@ -43,6 +43,14 @@ public class GameActions implements Serializable {
         }
     }
 
+    /**added by gabe
+     *
+     * @return
+     */
+    public boolean Check(){
+        return false;
+    }
+
     public boolean call(int leftToBet, ChipCollection playerChips){
         if (playerChips.getChips() >= leftToBet){
             int newChipAmount = playerChips.getChips() - leftToBet;
@@ -56,6 +64,15 @@ public class GameActions implements Serializable {
         if (inGame){
             return true;
         }
+        return false;
+    }
+    public boolean Menu(){
+        return false;
+    }
+    public boolean Exit(){
+        return false;
+    }
+    public boolean Help(){
         return false;
     }
 }
