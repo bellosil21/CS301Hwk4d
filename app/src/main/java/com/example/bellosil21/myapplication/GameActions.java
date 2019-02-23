@@ -2,11 +2,11 @@ package com.example.bellosil21.myapplication;
 
 import java.util.ArrayList;
 
-public class Player {
+public class GameActions {
     private ArrayList<Card> playerHand = null;
     private int chips;
 
-    public Player(int startingChips){
+    public GameActions(int startingChips){
         chips = startingChips;
     }
 
