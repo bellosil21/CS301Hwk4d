@@ -36,7 +36,20 @@ public class PokerGameState implements Serializable {
         smallBlind = startingSmall;
         roundNumber = 1;
         pot = new ChipCollection(startingChips);
+    }
 
+    /**
+     * I have a pretty good feeling this toString will not work
+     * but we will find out.
+     * @return a description of the game state.
+     */
+    public String toString(){
+        Arrays.toString(communityCards.toArray());
+        Arrays.toString(playersChips.toArray());
+        Arrays.toString(hands.toArray());
+        return "State of the Game: \n" + "Round Number: " + roundNumber +"\n" +
+        "Dealer ID: "+dealerID + "\n" + "Small Blind ID: " + smallBlind + "\n" +
+        "Big Blind ID: " + bigBlind + "\n" + "Chip pot: " +  pot.getAmount();
     }
 
 }

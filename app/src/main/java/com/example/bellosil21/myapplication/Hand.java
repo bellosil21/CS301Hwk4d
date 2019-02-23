@@ -7,8 +7,21 @@ public class Hand implements Serializable{
     Card hole1;
     Card hole2;
 
+
     public Hand(Card hole1, Card hole2){
         this.hole1 = hole1;
         this.hole2 = hole2;
+    }
+
+    /** method is incomplete
+     * Must find a way to be able to print the
+     * given cards. we can either pass a string id
+     * in the constructor or whatever anyone else
+     * opninionates.
+     * @return
+     */
+    public String toString(){
+        return "Player Hand => Card1:" hole1.toString() + "\n" +
+                "Card2: " + hole2.toString();
     }
 }

@@ -11,6 +11,9 @@ public class Card implements Serializable{
         HEART;
 
         public static final int numOfSuits = 4;
+        public String toString(){
+            return this.name();
+        }
     }
 
     // TODO: Add Reference
@@ -39,9 +42,14 @@ public class Card implements Serializable{
         public int getValue(){
             return numVal;
         }
+
+        public String toString(){
+            return this.name();
+        }
     }
     private Suit suit;
     private Rank rank;
+
 
     public Card(Suit suit, Rank rank){
         this.suit = suit;
@@ -54,6 +62,16 @@ public class Card implements Serializable{
 
     public Suit suit(){
         return suit;
+    }
+
+    /**
+     * This to string doesnt make too much sense yet
+     * We have to find a way to print what the suit and rank
+     * is for the tostring method....
+     * @return
+     */
+    public String toString(){
+        return "Suit: " + suit.toString() + "\nRank:" + rank.toString();
     }
 
 }

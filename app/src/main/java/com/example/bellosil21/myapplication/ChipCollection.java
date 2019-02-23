@@ -16,5 +16,14 @@ public class ChipCollection implements Serializable{
     public void setChips(int newChipAmount){
         amount = newChipAmount;
     }
+
+    /**
+     * this is just for the toString method in pokerGamestate
+     * @return just returns the only instance variable in
+     * this class.
+     */
+    public String getAmount(){
+        return ""+amount;
+    }
 }
 
