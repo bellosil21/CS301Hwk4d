@@ -1,10 +1,9 @@
 package com.example.bellosil21.myapplication;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-import static android.icu.lang.UProperty.MATH;
-
-public class PokerGameState {
+public class PokerGameState implements Serializable {
     ArrayList<Hand> hands; //Array of Players hand
     ArrayList<Card> communityCards; // Array of Cards shared for community
     ArrayList<ChipCollection> playersChips;   // Array of chip amount for players

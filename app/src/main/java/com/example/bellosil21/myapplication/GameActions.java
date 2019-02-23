@@ -1,8 +1,9 @@
 package com.example.bellosil21.myapplication;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class GameActions {
+public class GameActions implements Serializable {
 
 
     public boolean placeBets(int chipsBetIn, ChipCollection playersChips){

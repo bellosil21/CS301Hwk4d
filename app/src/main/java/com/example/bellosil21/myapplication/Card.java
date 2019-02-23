@@ -1,6 +1,8 @@
 package com.example.bellosil21.myapplication;
 
-public class Card {
+import java.io.Serializable;
+
+public class Card implements Serializable{
 
     public enum Suit{
         DIAMONDS,

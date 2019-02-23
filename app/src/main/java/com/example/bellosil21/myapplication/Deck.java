@@ -1,8 +1,9 @@
 package com.example.bellosil21.myapplication;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Deck {
+public class Deck implements Serializable{
     ArrayList<Card> deck;
 
     // TODO: Add Reference

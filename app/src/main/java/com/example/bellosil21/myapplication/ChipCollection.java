@@ -1,6 +1,8 @@
 package com.example.bellosil21.myapplication;
 
-public class ChipCollection {
+import java.io.Serializable;
+
+public class ChipCollection implements Serializable{
     private int amount;
 
     public ChipCollection(int amount){
