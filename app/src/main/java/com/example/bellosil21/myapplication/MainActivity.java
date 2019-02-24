@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    // TODO: Need to Add comments
     EditText currentPlayer;
     EditText playerAction;
     EditText playerBet;
