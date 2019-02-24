@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText text11;
     EditText text12;
 
+    int startingChips;
+    int startingSmall;
+    int startingBig;
+    int numPlayers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,18 +49,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        text1.setText("Clear");
-        text2.setText("Clear");
-        text3.setText("Clear");
-        text4.setText("Clear");
-        text5.setText("Clear");
-        text6.setText("Clear");
-        text7.setText("Clear");
-        text8.setText("Clear");
-        text9.setText("Clear");
-        text10.setText("Clear");
-        text11.setText("Clear");
-        text12.setText("Clear");
+        /* clearing the texts*/
+        text1.setText("");
+        text2.setText("");
+        text3.setText("");
+        text4.setText("");
+        text5.setText("");
+        text6.setText("");
+        text7.setText("");
+        text8.setText("");
+        text9.setText("");
+        text10.setText("");
+        text11.setText("");
+        text12.setText("");
+
+        PokerGameState firstInstance = new PokerGameState(startingChips, startingSmall, startingBig, numPlayers);
+        PokerGameState secondInstance = new PokerGameState(firstInstance);
+
+        PokerGameState thirdInstance = new PokerGameState(startingChips, startingSmall, startingBig, numPlayers);
+        PokerGameState fourthInstance = new PokerGameState(thirdInstance);
+
+        secondInstance.toString();
+        fourthInstance.toString();
 
     }
 }

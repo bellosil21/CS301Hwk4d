@@ -70,6 +70,7 @@ public class GameActions implements Serializable {
             return false;
         }
 
+
     }
 
     public boolean call(int leftToBet, ChipCollection playerChips){
@@ -87,6 +88,12 @@ public class GameActions implements Serializable {
         }
         return false;
     }
+
+    /**
+     * these methods should probably return true uncondtionally,
+     * since they arent techniquelly ever illegal moves but they
+     * are still actions.
+     */
     public boolean Menu(){
         return true;
     }
