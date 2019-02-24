@@ -71,6 +71,10 @@ public class PokerGameState implements Serializable {
         Arrays.toString(playersChips.toArray());
         Arrays.toString(hands.toArray());
 
+        /**
+         * Citation
+         */
+
         return "State of the Game: \n" + "Round Number: " + roundNumber +"\n" +
         "Dealer ID: "+dealerID + "\n" + "Small Blind ID: " + smallBlind + "\n" +
         "Big Blind ID: " + bigBlind + "\n" + "Chip pot: " +  pot.getAmount();

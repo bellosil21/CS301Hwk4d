@@ -51,11 +51,25 @@ public class GameActions implements Serializable {
     }
 
     /**added by gabe
-     *
+     * turn will be an intID.
+     * if id = 0 than its the first person's turn
+     * @param turn will be incremented with something to show
+     *             who's turn it is in the current round.
+     * @param placedBet will be true if someone in the current round has
+     *                  placed a bet, meeaning the action
      * @return
      */
-    public boolean Check(){
-        return false;
+    public boolean Check(int turn, boolean placedBet){
+        if(turn == 0){
+            //meaning that the player was allowed to check
+            return true;
+        }
+        else if(placedBet) //a place has been checked.
+        {
+            //than have it print: "Illegal move" or something.
+            return false;
+        }
+
     }
 
     public boolean call(int leftToBet, ChipCollection playerChips){
@@ -74,12 +88,12 @@ public class GameActions implements Serializable {
         return false;
     }
     public boolean Menu(){
-        return false;
+        return true;
     }
     public boolean Exit(){
-        return false;
+        return true;
     }
     public boolean Help(){
-        return false;
+        return true;
     }
 }

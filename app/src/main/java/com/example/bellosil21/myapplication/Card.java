@@ -103,7 +103,7 @@ public class Card implements Serializable {
         return rank;
     }
 
-    public Suit suit(){
+    public Suit getSuit(){
         return suit;
     }
 

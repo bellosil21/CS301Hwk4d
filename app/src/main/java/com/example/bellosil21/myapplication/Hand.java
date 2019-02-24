@@ -36,6 +36,7 @@ public class Hand implements Serializable{
     public Hand(Hand toCopy) {
         hole1 = new Card(toCopy.hole1);
         hole2 = new Card(toCopy.hole2);
+
     }
 
     /**
@@ -44,10 +45,11 @@ public class Hand implements Serializable{
      * given cards. we can either pass a string id
      * in the constructor or whatever anyone else
      * opninionates.
+     * i hate that word kevin
      * @return
      */
     public String toString(){
-        return "Player Hand => Card1:" hole1.toString() + "\n" +
+        return "Player Hand => Card1:" + hole1.toString() + "\n" +
                 "Card2: " + hole2.toString();
     }
 }
