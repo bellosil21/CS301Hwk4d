@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText currentBigBlind;
     EditText currentSmallBlind;
 
+    int startingChips;
+    int startingSmall;
+    int startingBig;
+    int numPlayers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
