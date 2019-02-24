@@ -12,84 +12,84 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/playerTurn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Player's Turn" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/actionMade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Action" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/betMade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Bet Amount" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/player1Chips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Player 1 Chip Amount" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/player2Chips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Player 2 Chip Amount" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/player3Chips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Player 3 Chip Amount" />
 
         <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/player4Chips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Player 4 Chip Amount" />
 
         <EditText
-            android:id="@+id/editText8"
+            android:id="@+id/potAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Amount in Pot" />
 
         <EditText
-            android:id="@+id/editText9"
+            android:id="@+id/bigBlindPlayer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Big Blind" />
 
         <EditText
-            android:id="@+id/editText10"
+            android:id="@+id/smallBlindPlayer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Small Blind" />
 
         <EditText
             android:id="@+id/editText11"
@@ -108,10 +108,10 @@
             android:text="Name" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/runTest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Run Test" />
     </LinearLayout>
 
 </LinearLayout>

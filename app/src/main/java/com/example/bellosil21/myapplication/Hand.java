@@ -47,7 +47,6 @@ public class Hand implements Serializable{
      * @return
      */
     public String toString(){
-        return "Player Hand => Card1:" hole1.toString() + "\n" +
-                "Card2: " + hole2.toString();
+        return "Player Hand => Card1:" + hole1.toString() + "\n" + "Card2: " + hole2.toString();
     }
 }

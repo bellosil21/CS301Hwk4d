@@ -2,6 +2,7 @@ package com.example.bellosil21.myapplication;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Defines the game state to play Poker.
@@ -101,12 +102,12 @@ public class PokerGameState implements Serializable {
         smallBlind = toCopy.smallBlind;
         bigBlind = toCopy.bigBlind;
 
-        playersChips = new ArraryList<ChipCollection>();
+        playersChips = new ArrayList<ChipCollection>();
         for (ChipCollection cc : toCopy.playersChips) {
             playersChips.add(new ChipCollection(cc));
         }
 
-        pot = new ChipCollection(toCopy.pot)
+        pot = new ChipCollection(toCopy.pot);
     }
 
 }

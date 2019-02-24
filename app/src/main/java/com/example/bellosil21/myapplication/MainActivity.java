@@ -8,55 +8,49 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    EditText text1;
-    EditText text2;
-    EditText text3;
-    EditText text4;
-    EditText text5;
-    EditText text6;
-    EditText text7;
-    EditText text8;
-    EditText text9;
-    EditText text10;
-    EditText text11;
-    EditText text12;
+    EditText currentPlayer;
+    EditText playerAction;
+    EditText playerBet;
+    EditText player1Stack;
+    EditText player2Stack;
+    EditText player3Stack;
+    EditText player4Stack;
+    EditText currentPot;
+    EditText currentBigBlind;
+    EditText currentSmallBlind;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        text1 = findViewById(R.id.editText);
-        text2 = findViewById(R.id.editText2);
-        text3 = findViewById(R.id.editText3);
-        text4 = findViewById(R.id.editText4);
-        text5 = findViewById(R.id.editText5);
-        text6 = findViewById(R.id.editText6);
-        text7 = findViewById(R.id.editText7);
-        text8 = findViewById(R.id.editText8);
-        text9 = findViewById(R.id.editText9);
-        text10 = findViewById(R.id.editText10);
-        text11 = findViewById(R.id.editText11);
-        text12 = findViewById(R.id.editText12);
+        currentPlayer = findViewById(R.id.playerTurn);
+        playerAction = findViewById(R.id.actionMade);
+        playerBet = findViewById(R.id.betMade);
+        player1Stack = findViewById(R.id.player1Chips);
+        player2Stack = findViewById(R.id.player2Chips);
+        player3Stack = findViewById(R.id.player3Chips);
+        player4Stack = findViewById(R.id.player4Chips);
+        currentPot = findViewById(R.id.potAmount);
+        currentBigBlind = findViewById(R.id.bigBlindPlayer);
+        currentSmallBlind = findViewById(R.id.smallBlindPlayer);
 
-        Button runTest = findViewById(R.id.button);
+        Button runTest = findViewById(R.id.runTest);
             runTest.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        text1.setText("Clear");
-        text2.setText("Clear");
-        text3.setText("Clear");
-        text4.setText("Clear");
-        text5.setText("Clear");
-        text6.setText("Clear");
-        text7.setText("Clear");
-        text8.setText("Clear");
-        text9.setText("Clear");
-        text10.setText("Clear");
-        text11.setText("Clear");
-        text12.setText("Clear");
+        currentPlayer.setText("Clear");
+        playerAction.setText("Clear");
+        playerBet.setText("Clear");
+        player1Stack.setText("Clear");
+        player2Stack.setText("Clear");
+        player3Stack.setText("Clear");
+        player4Stack.setText("Clear");
+        currentPot.setText("Clear");
+        currentBigBlind.setText("Clear");
+        currentSmallBlind.setText("Clear");
 
     }
 }
