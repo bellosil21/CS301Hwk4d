@@ -99,41 +99,126 @@ public class PokerGameState implements Serializable {
      *
      * @return a string that contains the description of the game state.
      */
-    public String toString(){
+    public String toString() {
         // creates toReturn string variable
         String toReturn = playingDeck.toString();
         // for loop iterates the player's hand array to determine which cards the player has
-        for(int i = 0; i < hands.size(); i++){
+        for (int i = 0; i < hands.size(); i++) {
             // prints out the cards that are in the player's hand
-            toReturn += "\nPlayer One's Hand: " +hands.get(i);
+            toReturn += "\nPlayer One's Hand: " + hands.get(i);
         }
         // states which community cards are currently on the table
         toReturn += "\n\nCommunity Cards:";
         // iterates through the community cards array and prints them out
-        for(Card d: communityCards){
-            toReturn += " "+ d.toString();
+        for (Card d : communityCards) {
+            toReturn += " " + d.toString();
         }
         // states the current round number
-        toReturn += "\nRound Number: " +roundNumber;
+        toReturn += "\nRound Number: " + roundNumber;
         // states who the current dealer is
-        toReturn += "\nCurrent Dealer: " +dealerID;
+        toReturn += "\nCurrent Dealer: " + dealerID;
         // states the cost of the small blind
-        toReturn += "\nSmall Blind: " +smallBlind;
+        toReturn += "\nSmall Blind: " + smallBlind;
         // states the cost of the big blind
-        toReturn += "\nBig Blind: " +bigBlind;
+        toReturn += "\nBig Blind: " + bigBlind;
         // iterates through the player's chip amount and states how much money they have
-        for(int i = 0; i < playersChips.size(); i++){
-            toReturn += "\nPlayer One's Chips: " +playersChips.get(i);
+        for (int i = 0; i < playersChips.size(); i++) {
+            toReturn += "\nPlayer One's Chips: " + playersChips.get(i);
         }
         // states the current amount of the pot
-        toReturn += "\nCurrent Pot: " +pot;
-        /**
-         * Citation
-         */
+        toReturn += "\nCurrent Pot: " + pot;
 
-        return "State of the Game: \n" + "Round Number: " + roundNumber +"\n" +
-                "Dealer ID: "+dealerID + "\n" + "Small Blind ID: " + smallBlind + "\n" +
-                "Big Blind ID: " + bigBlind + "\n" + "Chip pot: " +  pot.toString();
+        return toReturn;
+    }
+
+    /** Game Actions */
+
+    public boolean placeBets(int chipsBetIn, ChipCollection player){
+        if (chipsBetIn > player.getChips()){ return false; }
+
+        int newChipAmount = player.getChips() - chipsBetIn;
+        player.setChips(newChipAmount);
+
+        return true;
+    }
+
+    public boolean fold(boolean isTurn, boolean inGame){
+        if (isTurn) {
+            return true;
+        }
+        if (inGame){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean showCards(boolean wonRound){
+        if (wonRound){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean hideCards(boolean wonRound){
+        if (wonRound){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**added by gabe
+     * turn will be an intID.
+     * if id = 0 than its the first person's turn
+     * @param placedBet will be true if someone in the current round has
+     *                  placed a bet, meeaning the action
+     * @return
+     */
+    public boolean Check(boolean placedBet){
+        if(placedBet) //a place has been checked.
+        {
+            //than have it print: "Illegal move" or something.
+            return false;
+        }
+
+        return true;
+
+    }
+
+    public boolean call(int leftToBet, ChipCollection player){
+        if (player.getChips() >= leftToBet){
+            int newChipAmount = player.getChips() - leftToBet;
+            player.setChips(newChipAmount);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean allIn(boolean inGame){
+        if (inGame){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * these methods should probably return true uncondtionally,
+     * since they arent techniquelly ever illegal moves but they
+     * are still actions.
+     */
+    public boolean menu(){
+        return true;
+    }
+
+    public boolean exit(){
+        return true;
+    }
+
+    public boolean help(){
+        return true;
     }
 
 }
