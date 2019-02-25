@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public class ChipCollection implements Serializable{
 
-    private int amount; // the amount of chips contains in the collection.
+    protected int amount; // the amount of chips contains in the collection.
 
     public ChipCollection(int amount){
         this.amount = amount;

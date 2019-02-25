@@ -26,7 +26,7 @@ public class PokerGameState implements Serializable {
     private int smallBlind;        // Current small blind betting amount
     private int bigBlind;          // Current big blind betting amount
 
-    private ArrayList<ChipCollection> playersChips; // Array of chip amount for players
+    private ArrayList<PlayerChipCollection> playersChips; // Array of chip amount for players
     private ChipCollection pot;    // Current winnings
 
 
@@ -54,9 +54,9 @@ public class PokerGameState implements Serializable {
         smallBlind = startingSmall;
         bigBlind = startingBig;
 
-        playersChips = new ArrayList<ChipCollection>();
+        playersChips = new ArrayList<PlayerChipCollection>();
         for (int i = 0; i < numPlayers; i++){
-            playersChips.add(new ChipCollection(startingChips));
+            playersChips.add(new PlayerChipCollection(startingChips, i));
         }
         pot = new ChipCollection(startingChips);
     }
@@ -86,9 +86,9 @@ public class PokerGameState implements Serializable {
         smallBlind = toCopy.smallBlind;
         bigBlind = toCopy.bigBlind;
 
-        playersChips = new ArrayList<ChipCollection>();
-        for (ChipCollection cc : toCopy.playersChips) {
-            playersChips.add(new ChipCollection(cc));
+        playersChips = new ArrayList<PlayerChipCollection>();
+        for (PlayerChipCollection cc : toCopy.playersChips) {
+            playersChips.add(new PlayerChipCollection(cc));
         }
 
         pot = new ChipCollection(toCopy.pot);
