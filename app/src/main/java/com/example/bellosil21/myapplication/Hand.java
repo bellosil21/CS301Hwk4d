@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Hand implements Serializable{
 
+    // Declares the cards in a player's hand
     private Card hole1;
     private Card hole2;
 

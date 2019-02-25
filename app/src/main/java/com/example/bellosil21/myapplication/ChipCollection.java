@@ -28,6 +28,11 @@ public class ChipCollection implements Serializable{
         amount = toCopy.amount;
     }
 
+    /**
+     * Gets the amount of chips a player has
+     *
+     * @return The amount of Chips a Player has
+     */
     public int getChips(){
         return amount;
     }
