@@ -68,10 +68,23 @@ public class PokerGameState implements Serializable {
      * @return a description of the game state.
      */
     public String toString(){
-        Arrays.toString(communityCards.toArray());
-        Arrays.toString(playersChips.toArray());
-        Arrays.toString(hands.toArray());
+        String toReturn = playingDeck.toString();
 
+        for(int i = 0; i < hands.size(); i++){
+            toReturn += "\nPlayer One's Hand: " +hands.get(i);
+        }
+        toReturn += "\n\nCommunity Cards:";
+        for(Card d: communityCards){
+            toReturn += " "+ d.toString();
+        }
+        toReturn += "\nRound Number: " +roundNumber;
+        toReturn += "\nCurrent Dealer: " +dealerID;
+        toReturn += "\nSmall Blind: " +smallBlind;
+        toReturn += "\nBig Blind: " +bigBlind;
+        for(int i = 0; i < playersChips.size(); i++){
+            toReturn += "\nPlayer One's Chips: " +playersChips.get(i);
+        }
+        toReturn += "\nCurrent Pot: " +pot;
         /**
          * Citation
          */

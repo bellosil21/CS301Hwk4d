@@ -53,10 +53,16 @@ public class Deck implements Serializable{
     /**
      * Describes the deck.
      *
-     * @return a string describing the amount of cards left in the deck
+     * @return a string describing the amount of cards left in the deck and prints out
+     * all the cards in the deck
      */
     @Override
     public String toString() {
-        return deckOfCards.size() + " cards left";
+        String toReturn = deckOfCards.size() + " cards ";
+        for(Card c : deckOfCards){
+            toReturn += "\n" + c.toString();
+        }
+        return toReturn;
     }
+
 }
