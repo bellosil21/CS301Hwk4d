@@ -78,7 +78,7 @@ public class PokerGameState implements Serializable {
 
         return "State of the Game: \n" + "Round Number: " + roundNumber +"\n" +
         "Dealer ID: "+dealerID + "\n" + "Small Blind ID: " + smallBlind + "\n" +
-        "Big Blind ID: " + bigBlind + "\n" + "Chip pot: " +  pot.getAmount();
+        "Big Blind ID: " + bigBlind + "\n" + "Chip pot: " +  pot.toString();
     }
 
     /**

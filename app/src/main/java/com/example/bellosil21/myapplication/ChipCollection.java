@@ -37,13 +37,13 @@ public class ChipCollection implements Serializable{
     }
 
     /**
-     * this is just for the toString method in pokerGamestate
+     * Describes the chip collection.
      *
-     * @return just returns the only instance variable in
-     * this class.
+     * @return a string describing the amount of chips in this chip collection
      */
-    public String getAmount(){
-        return "" + amount;
+    @Override
+    public String toString(){
+        return amount + " chips";
     }
 }
 
