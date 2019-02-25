@@ -27,7 +27,9 @@ public class PokerGameState implements Serializable {
     private int bigBlind;          // Current big blind betting amount
 
     private ArrayList<PlayerChipCollection> playersChips; // Array of chip amount for players
-    private ChipCollection pot;    // Current winnings
+
+    private BetTracker bets;       // tracks the pot and maximum bet
+    private TurnTracker turn;      // tracks whose turn it is
 
 
     /** constants */
@@ -58,7 +60,10 @@ public class PokerGameState implements Serializable {
         for (int i = 0; i < numPlayers; i++){
             playersChips.add(new PlayerChipCollection(startingChips, i));
         }
-        pot = new ChipCollection(startingChips);
+
+        bets = new BetTracker(playersChips);
+
+        turn = new TurnTracker(playersChips, dealerID);
     }
 
     /**
@@ -91,7 +96,9 @@ public class PokerGameState implements Serializable {
             playersChips.add(new PlayerChipCollection(cc));
         }
 
-        pot = new ChipCollection(toCopy.pot);
+        bets = new BetTracker(toCopy.bets);
+
+        turn = new TurnTracker(toCopy.turn);
     }
 
     /**
@@ -99,6 +106,7 @@ public class PokerGameState implements Serializable {
      *
      * @return a string that contains the description of the game state.
      */
+    @Override
     public String toString() {
         // creates toReturn string variable
         String toReturn = playingDeck.toString();
@@ -123,85 +131,54 @@ public class PokerGameState implements Serializable {
         toReturn += "\nBig Blind: " + bigBlind;
         // iterates through the player's chip amount and states how much money they have
         for (int i = 0; i < playersChips.size(); i++) {
-            toReturn += "\nPlayer " + i + ": " + playersChips.toString();
+            toReturn += "\nPlayer " + (i + 1) + ": " + playersChips.toString();
         }
-        // states the current amount of the pot
-        toReturn += "\nCurrent Pot: " + pot;
+        // states the current amount of the pot and
+        toReturn += "\n" + bets.toString();
+        toReturn += "\n" + turn.toString();
 
         return toReturn;
     }
 
     /** Game Actions */
 
-    public boolean placeBets(int chipsBetIn, ChipCollection player){
-        if (chipsBetIn > player.getChips()){ return false; }
+    public boolean placeBets(int playerID, int amount){
+        return bets.submitBet(playerID, amount);
+    }
 
-        int newChipAmount = player.getChips() - chipsBetIn;
-        player.setChips(newChipAmount);
-
+    public boolean fold(int playerID){
+        //TODO: use the TurnTacker to see if it's the players current turn. If it is, set the
+        // player's hasFolded to true.
         return true;
     }
 
-    public boolean fold(boolean isTurn, boolean inGame){
-        if (isTurn) {
-            return true;
-        }
-        if (inGame){
-            return true;
-        }
-        return false;
+    public boolean showCards(int playerID, boolean isLeftCard){
+        //TODO: make two booleans in Hand.java that correlated if the left and right card has
+        // been shown. Then set that boolean appropriately in this method.
+        return true;
     }
 
-    public boolean showCards(boolean wonRound){
-        if (wonRound){
-            return true;
-        }
-        else{
-            return false;
-        }
+    public boolean hideCards(int playerID, boolean isLeftCard){
+        //TODO: see the TODO in showCards; set the boolean in Hand.java appropriately in this
+        // method.
+        return true;
     }
 
-    public boolean hideCards(boolean wonRound){
-        if (wonRound){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    /**added by gabe
-     * turn will be an intID.
-     * if id = 0 than its the first person's turn
-     * @param placedBet will be true if someone in the current round has
-     *                  placed a bet, meeaning the action
-     * @return
-     */
-    public boolean Check(boolean placedBet){
-        if(placedBet) //a place has been checked.
-        {
-            //than have it print: "Illegal move" or something.
-            return false;
-        }
-
+    public boolean check(int playerID){
+        //TODO: check if it's the current player's turn and the maxBet (int from BetTracker)
+        //is 0. If so, set the player's hasCalled boolean to true;
         return true;
 
     }
 
-    public boolean call(int leftToBet, ChipCollection player){
-        if (player.getChips() >= leftToBet){
-            int newChipAmount = player.getChips() - leftToBet;
-            player.setChips(newChipAmount);
-            return true;
-        }
-        return false;
+    public boolean call(int playerID){
+        //TODO: submit a placeBet() with the current maxBet from the BetTracker
+        return true;
     }
 
-    public boolean allIn(boolean inGame){
-        if (inGame){
-            return true;
-        }
-        return false;
+    public boolean allIn(int playerID){
+        //TODO: reference placeBets() with the player's max bet amount
+        return true;
     }
 
     /**

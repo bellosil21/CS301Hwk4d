@@ -37,8 +37,12 @@ public class ChipCollection implements Serializable{
         return amount;
     }
 
-    public void setChips(int newChipAmount){
-        amount = newChipAmount;
+    public void addChips(int toAdd) {
+        amount += toAdd;
+    }
+
+    public void removeChips(int toRemove){
+        amount -= toRemove;
     }
 
     /**

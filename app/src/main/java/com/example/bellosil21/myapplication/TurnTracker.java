@@ -1,0 +1,56 @@
+package com.example.bellosil21.myapplication;
+
+import java.util.ArrayList;
+
+/**
+ * Keeps track of whose turn it is.
+ *
+ * @author Patrick Bellosillo
+ * @author Jordan Ho
+ * @author Kevin Hoser
+ * @author Gabe Marcial
+ */
+public class TurnTracker {
+
+    private ArrayList<PlayerChipCollection> players; //the amount of players in the game
+    private int activePlayerID; //a player ID to track the current player's turn
+                                //0 <= activePlayerID < players.size()
+
+    /**
+     * The tracker requires the total amount of players and the player to take the first turn.
+     *
+     * @param  player   the ArrayList of all PlayerChipCollection in the game
+     * @param activePlayerID    the player to take the first turn;
+     *                          0 <= activePlayerID < players.size()
+     */
+    public TurnTracker(ArrayList<PlayerChipCollection> player, int activePlayerID) {
+        this.players = player;
+        this.activePlayerID = activePlayerID;
+    }
+
+    /**
+     * Copy constructor
+     */
+    public TurnTracker(TurnTracker toCopy) {
+        this.players = new ArrayList<PlayerChipCollection>();
+
+        for (PlayerChipCollection p : toCopy.players) {
+            this.players.add(new PlayerChipCollection(p));
+        }
+
+        activePlayerID = toCopy.activePlayerID;
+    }
+
+    public int nextTurn() {
+        return (activePlayerID + 1) % players.size();
+    }
+
+    public int getActivePlayerID() {
+        return activePlayerID;
+    }
+
+    @Override
+    public String toString() {
+        return "Current Turn: Player " + activePlayerID;
+    }
+}

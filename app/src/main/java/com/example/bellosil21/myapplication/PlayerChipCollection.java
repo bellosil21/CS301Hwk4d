@@ -12,6 +12,7 @@ public class PlayerChipCollection extends ChipCollection {
 
     private int playerID;
     private boolean hasFolded; //whether or not the player has folded
+    private boolean hasCalled; //whether or not the player has called
 
     /**
      * Assigns player data to a ChipCollection
@@ -23,12 +24,17 @@ public class PlayerChipCollection extends ChipCollection {
         super(amount);
         this.playerID = id;
         hasFolded = false;
+        hasCalled = false;
     }
 
+    /**
+     * Copy constructor
+     */
     public PlayerChipCollection(PlayerChipCollection toCopy) {
         super(toCopy.amount);
         this.playerID = toCopy.playerID;
         hasFolded = toCopy.hasFolded;
+        hasCalled = toCopy.hasCalled;
     }
 
     public boolean hasFolded() {
@@ -39,8 +45,16 @@ public class PlayerChipCollection extends ChipCollection {
         this.hasFolded = hasFolded;
     }
 
+    public boolean hasCalled() {
+        return hasCalled;
+    }
+
+    public void setHasCalled(boolean hasCalled) {
+        this.hasCalled = hasCalled;
+    }
+
     @Override
     public String toString() {
-        return super.toString() + ", hasFolded is " + hasFolded;
+        return super.toString() + ", hasFolded is " + hasFolded + ", hasCalled is " + hasCalled;
     }
 }

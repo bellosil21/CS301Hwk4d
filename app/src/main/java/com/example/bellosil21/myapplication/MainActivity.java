@@ -33,5 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         PokerGameState firstInstance = new PokerGameState(STARTING_CHIPS, STARTING_SMALL,
                 STARTING_BIG, NUM_PLAYERS);
+
+        //TODO: finish the onClick() implmentation as noted on the assignment documentation using
+        // random playerIDs from 0 to 3 (4 players)
     }
 }
