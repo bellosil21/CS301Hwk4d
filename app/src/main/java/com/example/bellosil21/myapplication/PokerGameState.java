@@ -142,6 +142,7 @@ public class PokerGameState implements Serializable {
         return true;
     }
 
+    // TODO: Change all methods to reflect parameter of PlayerID
     public boolean fold(boolean isTurn, boolean inGame){
         if (isTurn) {
             return true;
