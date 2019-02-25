@@ -39,13 +39,9 @@ public class Hand implements Serializable{
     }
 
     /**
-     * TODO: method is incomplete
-     * Must find a way to be able to print the
-     * given cards. we can either pass a string id
-     * in the constructor or whatever anyone else
-     * opninionates.
-     * i hate that word kevin
-     * @return
+     * Describes the hand.
+     *
+     * @return a string describing the cards in hand
      */
     public String toString(){
         return "Player Hand => Card1:" + hole1.toString() + "\n" +

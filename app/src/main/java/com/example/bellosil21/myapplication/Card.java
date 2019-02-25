@@ -23,6 +23,7 @@ public class Card implements Serializable {
 
         public static final int numOfSuits = 4;
 
+        @Override
         public String toString(){
             return this.name();
         }
@@ -114,8 +115,9 @@ public class Card implements Serializable {
      *
      * @return a message representing a card
      */
+    @Override
     public String toString(){
-        return "Suit: " + suit.toString() + "\nRank:" + rank.toString();
+        return rank.toString() +  " of " + suit.toString();
     }
 
 }
