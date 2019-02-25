@@ -38,4 +38,9 @@ public class PlayerChipCollection extends ChipCollection {
     public void setHasFolded(boolean hasFolded) {
         this.hasFolded = hasFolded;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", hasFolded is " + hasFolded;
+    }
 }

@@ -123,7 +123,7 @@ public class PokerGameState implements Serializable {
         toReturn += "\nBig Blind: " + bigBlind;
         // iterates through the player's chip amount and states how much money they have
         for (int i = 0; i < playersChips.size(); i++) {
-            toReturn += "\nPlayer One's Chips: " + playersChips.get(i);
+            toReturn += "\nPlayer " + i + ": " + playersChips.toString();
         }
         // states the current amount of the pot
         toReturn += "\nCurrent Pot: " + pot;
