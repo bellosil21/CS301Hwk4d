@@ -10,12 +10,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // TODO: Need to Add comments
     
-    EditText gameState;
+    private EditText gameState;
 
-    int startingChips;
-    int startingSmall;
-    int startingBig;
-    int numPlayers;
+    public static final int STARTING_CHIPS = 2000;
+    public static final int STARTING_SMALL = 100;
+    public static final int STARTING_BIG = 50;
+    public static final int NUM_PLAYERS = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         gameState.setText("");
+
+        PokerGameState firstInstance = new PokerGameState(STARTING_CHIPS, STARTING_SMALL,
+                STARTING_BIG, NUM_PLAYERS);
     }
 }
