@@ -9,13 +9,12 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     // TODO: Need to Add comments
+    private EditText gameState;
 
-    EditText gameState;
-
-    int startingChips;
-    int startingSmall;
-    int startingBig;
-    int numPlayers;
+    public static final int STARTING_CHIPS = 2000;
+    public static final int STARTING_SMALL = 25;
+    public static final int STARTING_BIG = 50;
+    public static final int NUM_PLAYERS = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         gameState.setText("");
+
+        PokerGameState firstInstance = new PokerGameState(STARTING_CHIPS, STARTING_SMALL,
+                STARTING_BIG, NUM_PLAYERS);
     }
 }

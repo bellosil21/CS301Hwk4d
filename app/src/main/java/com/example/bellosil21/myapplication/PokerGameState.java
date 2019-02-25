@@ -62,39 +62,6 @@ public class PokerGameState implements Serializable {
     }
 
     /**
-     * TODO: I have a pretty good feeling this toString will not work
-     * but we will find out.
-     *
-     * @return a description of the game state.
-     */
-    public String toString(){
-        String toReturn = playingDeck.toString();
-
-        for(int i = 0; i < hands.size(); i++){
-            toReturn += "\nPlayer One's Hand: " +hands.get(i);
-        }
-        toReturn += "\n\nCommunity Cards:";
-        for(Card d: communityCards){
-            toReturn += " "+ d.toString();
-        }
-        toReturn += "\nRound Number: " +roundNumber;
-        toReturn += "\nCurrent Dealer: " +dealerID;
-        toReturn += "\nSmall Blind: " +smallBlind;
-        toReturn += "\nBig Blind: " +bigBlind;
-        for(int i = 0; i < playersChips.size(); i++){
-            toReturn += "\nPlayer One's Chips: " +playersChips.get(i);
-        }
-        toReturn += "\nCurrent Pot: " +pot;
-        /**
-         * Citation
-         */
-
-        return "State of the Game: \n" + "Round Number: " + roundNumber +"\n" +
-        "Dealer ID: "+dealerID + "\n" + "Small Blind ID: " + smallBlind + "\n" +
-        "Big Blind ID: " + bigBlind + "\n" + "Chip pot: " +  pot.toString();
-    }
-
-    /**
      * Copy Constructor
      * Deep copy of current game state.
      *
@@ -125,6 +92,48 @@ public class PokerGameState implements Serializable {
         }
 
         pot = new ChipCollection(toCopy.pot);
+    }
+
+    /**
+     * Description of a game state
+     *
+     * @return a string that contains the description of the game state.
+     */
+    public String toString(){
+        // creates toReturn string variable
+        String toReturn = playingDeck.toString();
+        // for loop iterates the player's hand array to determine which cards the player has
+        for(int i = 0; i < hands.size(); i++){
+            // prints out the cards that are in the player's hand
+            toReturn += "\nPlayer One's Hand: " +hands.get(i);
+        }
+        // states which community cards are currently on the table
+        toReturn += "\n\nCommunity Cards:";
+        // iterates through the community cards array and prints them out
+        for(Card d: communityCards){
+            toReturn += " "+ d.toString();
+        }
+        // states the current round number
+        toReturn += "\nRound Number: " +roundNumber;
+        // states who the current dealer is
+        toReturn += "\nCurrent Dealer: " +dealerID;
+        // states the cost of the small blind
+        toReturn += "\nSmall Blind: " +smallBlind;
+        // states the cost of the big blind
+        toReturn += "\nBig Blind: " +bigBlind;
+        // iterates through the player's chip amount and states how much money they have
+        for(int i = 0; i < playersChips.size(); i++){
+            toReturn += "\nPlayer One's Chips: " +playersChips.get(i);
+        }
+        // states the current amount of the pot
+        toReturn += "\nCurrent Pot: " +pot;
+        /**
+         * Citation
+         */
+
+        return "State of the Game: \n" + "Round Number: " + roundNumber +"\n" +
+                "Dealer ID: "+dealerID + "\n" + "Small Blind ID: " + smallBlind + "\n" +
+                "Big Blind ID: " + bigBlind + "\n" + "Chip pot: " +  pot.toString();
     }
 
 }
