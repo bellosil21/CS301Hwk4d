@@ -112,7 +112,9 @@ public class PokerGameState implements Serializable {
         playingDeck = null;
 
         hands = new ArrayList<Hand>();
-        hands.add(toCopy.hands.get(playerID));
+        for (Hand h : toCopy.hands) {
+            hands.add(new Hand(h));
+        }
 
         communityCards = new ArrayList<Card>();
         for (Card c : toCopy.communityCards) {

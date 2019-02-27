@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class Hand implements Serializable{
 
     // Declares the cards in a player's hand
-    private Card hole1;
-    private Card hole2;
+    private Slot hole1;
+    private Slot hole2;
     // Declares the player's left card hidden from the other players
     private boolean showLeft;
     // Declares the player's right card hidden from the other players
@@ -36,13 +36,22 @@ public class Hand implements Serializable{
 
     /**
      * Copy constructor
-     * Copies the cards into a new hand.
+     * Copies the cards into a new hand. Will only pass a Card if show(Left/Right) is true. Else,
+     * a BlankCard is copied.
      *
      * @param toCopy    the Hand to copy
      */
     public Hand(Hand toCopy) {
-        hole1 = new Card(toCopy.hole1);
-        hole2 = new Card(toCopy.hole2);
+        if (toCopy.showLeft) {
+            hole1 = new Card((Card)toCopy.hole1);
+        } else {
+            hole1 = new BlankCard();
+        }
+        if (toCopy.showRight) {
+            hole2 = new Card((Card)toCopy.hole2);
+        } else {
+            hole2 = new BlankCard();
+        }
         showLeft = toCopy.showLeft;
         showRight = toCopy.showRight;
     }
