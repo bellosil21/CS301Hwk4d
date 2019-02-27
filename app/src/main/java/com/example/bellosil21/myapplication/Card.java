@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author Kevin Hoser
  * @author Gabe Marcial
  */
-public class Card implements Serializable {
+public class Card implements Serializable, Slot{
 
     /**
      * Defines the type of suits in a standard 52 card deck.
