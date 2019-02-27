@@ -65,6 +65,19 @@ public class BetTracker {
     }
 
     /**
+     *
+     * getter method
+     * @return
+     */
+    public int getMaxBet(){
+        return maxBet;
+    }
+
+    public void setMaxBet(int maxBet){
+        this.maxBet = maxBet;
+    }
+
+    /**
      * After everyone has called the maximum bet, we take everyone's bets and place them into the
      * pot.
      */
