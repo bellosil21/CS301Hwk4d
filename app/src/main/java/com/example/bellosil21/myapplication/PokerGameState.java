@@ -32,6 +32,7 @@ public class PokerGameState implements Serializable {
     private TurnTracker turn;      // tracks whose turn it is
 
 
+
     /** constants */
     private static final int INIT_ROUND_NUM = 1;
 
@@ -188,23 +189,33 @@ public class PokerGameState implements Serializable {
         return true;
     }
 
-    public boolean showCards(int playerID, boolean isLeftCard){
+    /* we need to find a way to assign 'hands'
+     * do inividual players
+      * */
+    public boolean showCards(int playerID, boolean isLeftCard, boolean isRightCard){
         //TODO: make two booleans in Hand.java that correlated if the left and right card has
         // been shown. Then set that boolean appropriately in this method.
         return true;
     }
 
-    public boolean hideCards(int playerID, boolean isLeftCard){
+    public boolean hideCards(int playerID, boolean isLeftCard, boolean isRightCard){
         //TODO: see the TODO in showCards; set the boolean in Hand.java appropriately in this
         // method.
         return true;
     }
 
+    /**
+     *
+     * Checks to see if it is the current player's turn and if there any current bets. If not
+     * return true.
+     * @param playerID
+     * @return
+     */
     public boolean check(int playerID){
-        //TODO: check if it's the current player's turn and the maxBet (int from BetTracker)
-        //is 0. If so, set the player's hasCalled boolean to true;
-        return true;
-
+        if(turn.getActivePlayerID() == playerID && bets.getMaxBet() == 0){
+            return true;
+        }
+        return false;
     }
 
     public boolean call(int playerID){
