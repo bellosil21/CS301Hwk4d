@@ -149,13 +149,13 @@ public class PokerGameState implements Serializable {
         // for loop iterates the player's hand array to determine which cards the player has
         for (int i = 0; i < hands.size(); i++) {
             // prints out the cards that are in the player's hand
-            toReturn += "\nPlayer One's Hand: " + hands.get(i);
+            toReturn += "\nPlayer " + (i + 1) + "'s Hand: " + hands.get(i).toString();
         }
         // states which community cards are currently on the table
         toReturn += "\n\nCommunity Cards:";
         // iterates through the community cards array and prints them out
-        for (Card d : communityCards) {
-            toReturn += " " + d.toString();
+        for (Card c : communityCards) {
+            toReturn += " " + c.toString();
         }
         // states the current round number
         toReturn += "\nRound Number: " + roundNumber;

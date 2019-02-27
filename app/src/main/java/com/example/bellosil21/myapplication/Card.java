@@ -109,11 +109,7 @@ public class Card implements Serializable, Slot{
     }
 
     /**
-     * TODO: This to string doesnt make too much sense yet
-     * We have to find a way to print what the suit and rank
-     * is for the tostring method....
-     *
-     * @return a message representing a card
+     * @return a String representing a card
      */
     @Override
     public String toString(){
