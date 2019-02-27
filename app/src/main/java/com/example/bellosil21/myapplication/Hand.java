@@ -16,6 +16,10 @@ public class Hand implements Serializable{
     // Declares the cards in a player's hand
     private Card hole1;
     private Card hole2;
+    // Declares the player's left card hidden from the other players
+    private boolean showLeft;
+    // Declares the player's right card hidden from the other players
+    private boolean showRight;
 
     /**
      * A player's hand is composed of two cards from the deck.
@@ -26,6 +30,8 @@ public class Hand implements Serializable{
     public Hand(Card hole1, Card hole2){
         this.hole1 = hole1;
         this.hole2 = hole2;
+        showLeft = false;
+        showRight = false;
     }
 
     /**
@@ -37,6 +43,8 @@ public class Hand implements Serializable{
     public Hand(Hand toCopy) {
         hole1 = new Card(toCopy.hole1);
         hole2 = new Card(toCopy.hole2);
+        showLeft = toCopy.showLeft;
+        showRight = toCopy.showRight;
     }
 
     /**
@@ -48,4 +56,5 @@ public class Hand implements Serializable{
         return "Player Hand => Card1:" + hole1.toString() + "\n" +
                 "Card2: " + hole2.toString();
     }
+
 }
