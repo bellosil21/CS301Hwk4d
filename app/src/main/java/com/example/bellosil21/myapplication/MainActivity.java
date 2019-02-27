@@ -8,12 +8,15 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    // TODO: Need to Add comments
     private EditText gameState;
 
+    // amount of money each player starts with
     public static final int STARTING_CHIPS = 2000;
+    // small blind entry fee
     public static final int STARTING_SMALL = 25;
+    // big blind entry fee
     public static final int STARTING_BIG = 50;
+    // number of players
     public static final int NUM_PLAYERS = 4;
 
     @Override
