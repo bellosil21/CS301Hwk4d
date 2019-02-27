@@ -189,13 +189,16 @@ public class PokerGameState implements Serializable {
         return true;
     }
 
-    public boolean showCards(int playerID, boolean isLeftCard){
+    /* we need to find a way to assign 'hands'
+     * do inividual players
+      * */
+    public boolean showCards(int playerID, boolean isLeftCard, boolean isRightCard){
         //TODO: make two booleans in Hand.java that correlated if the left and right card has
         // been shown. Then set that boolean appropriately in this method.
         return true;
     }
 
-    public boolean hideCards(int playerID, boolean isLeftCard){
+    public boolean hideCards(int playerID, boolean isLeftCard, boolean isRightCard){
         //TODO: see the TODO in showCards; set the boolean in Hand.java appropriately in this
         // method.
         return true;
