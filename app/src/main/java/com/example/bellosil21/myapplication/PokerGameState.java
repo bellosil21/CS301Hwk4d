@@ -102,6 +102,40 @@ public class PokerGameState implements Serializable {
     }
 
     /**
+     * Copy Constructor that only gives players their hand and does not give them the deck. All
+     * other instance vars are given.
+     *
+     * @param toCopy    the PokerGameState to copy
+     * @param playerID  the playerID that is given this copy of the game state
+     */
+    public PokerGameState(PokerGameState toCopy, int playerID) {
+        playingDeck = null;
+
+        hands = new ArrayList<Hand>();
+        hands.add(toCopy.hands.get(playerID));
+
+        communityCards = new ArrayList<Card>();
+        for (Card c : toCopy.communityCards) {
+            communityCards.add(new Card(c));
+        }
+
+        roundNumber = toCopy.roundNumber;
+        dealerID = toCopy.dealerID;
+
+        smallBlind = toCopy.smallBlind;
+        bigBlind = toCopy.bigBlind;
+
+        playersChips = new ArrayList<PlayerChipCollection>();
+        for (PlayerChipCollection cc : toCopy.playersChips) {
+            playersChips.add(new PlayerChipCollection(cc));
+        }
+
+        bets = new BetTracker(toCopy.bets);
+
+        turn = new TurnTracker(toCopy.turn);
+    }
+
+    /**
      * Description of a game state
      *
      * @return a string that contains the description of the game state.
