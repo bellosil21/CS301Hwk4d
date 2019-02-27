@@ -37,6 +37,12 @@ public class PlayerChipCollection extends ChipCollection {
         hasCalled = toCopy.hasCalled;
     }
 
+    /** getter method
+     *
+     * @return
+     */
+
+
     public boolean hasFolded() {
         return hasFolded;
     }
