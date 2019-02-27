@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // number of players
     public static final int NUM_PLAYERS = 4;
 
+    //max number of players is 4
+    public int[] playerID = new int[4];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         PokerGameState firstInstance = new PokerGameState(STARTING_CHIPS, STARTING_SMALL,
                 STARTING_BIG, NUM_PLAYERS);
+        /* player[0] is the perspective of player 1*/
+        PokerGameState secondInstance = new PokerGameState(firstInstance, playerID[0]);
+
 
         //TODO: finish the onClick() implmentation as noted on the assignment documentation using
         // random playerIDs from 0 to 3 (4 players)
