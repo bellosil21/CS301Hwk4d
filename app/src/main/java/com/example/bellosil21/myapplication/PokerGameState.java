@@ -238,9 +238,11 @@ public class PokerGameState implements Serializable {
      *
      * @param playerID  the ID of the player showing a card
      * @param isShown   true if the player wants to show their cards
+     * @return  true; this action is always valid
      */
-    public void showHideCards(int playerID, boolean isShown){
+    public boolean showHideCards(int playerID, boolean isShown){
         hands.get(playerID).setShowCards(isShown);
+        return true;
     }
 
     /**

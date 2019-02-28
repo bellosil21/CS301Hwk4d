@@ -44,26 +44,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PokerGameState secondInstance = new PokerGameState(firstInstance, playerID[0]);
 
         /* now calling every action method with firstInstance as instructed in the hw*/
-        firstInstance.placeBets(playerID[1], STARTING_SMALL);
-        gameState.append("Player 2 is the small blind and has placed a minimum bet of "+ STARTING_SMALL);
-        firstInstance.placeBets((playerID[2]), STARTING_BIG);
-        gameState.append("Player 3 is the small blind and has put in the next higher bet.\n");
-        firstInstance.fold(playerID[2]);
-        gameState.append("\nPlayer 3 has folded for this turn.\n");
+        boolean action0 = firstInstance.check(playerID[0]);
+        gameState.append("Player 1 has checked. - " + action0);
+        boolean action1 = firstInstance.placeBets(playerID[1], STARTING_SMALL);
+        gameState.append("\nPlayer 2 is the small blind and has placed a minimum bet of "+ STARTING_SMALL + " - " + action1);
+        boolean action2 = firstInstance.placeBets((playerID[2]), STARTING_BIG);
+        gameState.append("\nPlayer 3 is the small blind and has put in the next higher bet. - " + action2);
+        boolean action3 = firstInstance.fold(playerID[2]);
+        gameState.append("\nPlayer 3 has folded for this turn. - " + action3);
 
         /* assuming a player can show cards whenever and its a legal move.*/
-        firstInstance.showHideCards(playerID[0], true);
-        gameState.append("Player 1 has shown there cards to the table.\n");
-        firstInstance.showHideCards(playerID[0], false);
-        gameState.append("Player 1 is hiding their cards.\n");
+        boolean action4 = firstInstance.showHideCards(playerID[0], true);
+        gameState.append("\nPlayer 1 has shown there cards to the table. - " + action4);
+        boolean action5 =firstInstance.showHideCards(playerID[0], false);
+        gameState.append("\nPlayer 1 is hiding their cards. - " + action5);
 
         /* not a legal move but just putting it here. */
-        firstInstance.check(playerID[3]);
-        gameState.append("Player 4 has checked for this round.\n");
-        firstInstance.call(playerID[3]);
-        gameState.append("Player 4 has called.\n");
-        firstInstance.allIn(playerID[0]);
-        gameState.append("Player 1 has bet all his chips in.\n");
+        boolean action6 =firstInstance.check(playerID[3]);
+        gameState.append("\nPlayer 4 has checked for this round. - " + action6);
+        boolean action7 =firstInstance.call(playerID[3]);
+        gameState.append("\nPlayer 4 has called. - " + action7);
+        boolean action8 =firstInstance.allIn(playerID[0]);
+        gameState.append("\nPlayer 1 has bet all his chips in. - " + action8);
 
         /*"create a new instance of the gameState*/
         PokerGameState thirdInstance = new PokerGameState(STARTING_CHIPS, STARTING_SMALL, STARTING_BIG, NUM_PLAYERS);
