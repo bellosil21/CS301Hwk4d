@@ -185,6 +185,12 @@ public class PokerGameState implements Serializable {
 
     public boolean fold(int playerID){
         //TODO: use the TurnTacker to see if it's the players current turn. If it is, set the
+        if (turn.getActivePlayerID() != playerID){
+            return false;
+        }
+
+        playersChips.get(playerID).setHasFolded(true);
+
         // player's hasFolded to true.
         return true;
     }
@@ -195,11 +201,27 @@ public class PokerGameState implements Serializable {
     public boolean showCards(int playerID, boolean isLeftCard, boolean isRightCard){
         //TODO: make two booleans in Hand.java that correlated if the left and right card has
         // been shown. Then set that boolean appropriately in this method.
+
+        if (playerID == turn.getActivePlayerID()){
+            return false;
+        }
+
+        hands.get(playerID).setShowRight(false);
+        hands.get(playerID).setShowLeft(false);
+
+        // method.
         return true;
     }
 
     public boolean hideCards(int playerID, boolean isLeftCard, boolean isRightCard){
         //TODO: see the TODO in showCards; set the boolean in Hand.java appropriately in this
+        if (playerID == turn.getActivePlayerID()){
+            return false;
+        }
+
+        hands.get(playerID).setShowRight(false);
+        hands.get(playerID).setShowLeft(false);
+
         // method.
         return true;
     }

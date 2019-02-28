@@ -57,6 +57,24 @@ public class Hand implements Serializable{
     }
 
     /**
+     * Sets the boolean value if left card is to be shown
+     *
+     * @param isShown - boolean if card is to be shown
+     */
+    public void setShowLeft(boolean isShown) {
+        showLeft = isShown;
+    }
+
+    /**
+     * Sets the boolean value if right card is to be shown
+     *
+     * @param isShown - boolean if card is to be shown
+     */
+    public void setShowRight(boolean isShown){
+        showRight = isShown;
+    }
+
+    /**
      * Describes the hand.
      *
      * @return a string describing the cards in hand
