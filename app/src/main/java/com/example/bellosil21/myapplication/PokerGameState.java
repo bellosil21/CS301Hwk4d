@@ -245,12 +245,21 @@ public class PokerGameState implements Serializable {
         return true;
     }
 
+    /**
+     *
+     * checks to see if it is the current player's turn. If it is an instance of the player's
+     * chip amount is set to the integer bets. Then the player's chip amount is removed from
+     * their personal pot and is placed as a bet. 
+     * @param playerID
+     * @return
+     */
     public boolean allIn(int playerID){
-        //TODO: reference placeBets() with the player's max bet amount
         if(turn.getActivePlayerID() == playerID){
-
+            int bet = playersChips.get(playerID).getChips();
+            playersChips.get(playerID).removeChips(bet);
+            return bets.submitBet(playerID, bet);
         }
-        return true;
+        return false;
     }
 
     /**
