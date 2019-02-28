@@ -215,7 +215,6 @@ public class PokerGameState implements Serializable {
             turn.nextTurn();
             return true;
         }
-
         return false;
     }
 

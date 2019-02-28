@@ -97,7 +97,6 @@ public class Card implements Serializable, CardSlot {
     public Card(Card card) {
         this.suit = card.getSuit();
         this.rank = card.getRank();
-
     }
 
     public Rank getRank(){
