@@ -37,28 +37,47 @@ public class PlayerChipCollection extends ChipCollection {
         hasCalled = toCopy.hasCalled;
     }
 
-    /** getter method
+    /**
+     * Returns the truth value of if the player has folded
      *
      * @return
      */
-
-
     public boolean hasFolded() {
         return hasFolded;
     }
 
+    /**
+     * Sets the player status to fold status
+     *
+     * @param hasFolded - truth value of player's folded status
+     */
     public void setHasFolded(boolean hasFolded) {
         this.hasFolded = hasFolded;
     }
 
+    /**
+     * Returns the truth value of if the player has called
+     *
+     * @return true if the player has called. Otherwise, false
+     */
     public boolean hasCalled() {
         return hasCalled;
     }
 
+    /**
+     * Sets the truth value of if the player has called
+     *
+     * @param hasCalled - Truth value of the player's status
+     */
     public void setHasCalled(boolean hasCalled) {
         this.hasCalled = hasCalled;
     }
 
+    /**
+     * Prints the status of the game
+     *
+     * @return the string describing status of player action
+     */
     @Override
     public String toString() {
         return super.toString() + ", hasFolded is " + hasFolded + ", hasCalled is " + hasCalled;
