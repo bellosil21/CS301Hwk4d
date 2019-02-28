@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public class ChipCollection implements Serializable{
 
-    private int amount; // the amount of chips contains in the collection.
+    protected int amount; // the amount of chips contains in the collection.
 
     public ChipCollection(int amount){
         this.amount = amount;
@@ -37,8 +37,12 @@ public class ChipCollection implements Serializable{
         return amount;
     }
 
-    public void setChips(int newChipAmount){
-        amount = newChipAmount;
+    public void addChips(int toAdd) {
+        amount += toAdd;
+    }
+
+    public void removeChips(int toRemove){
+        amount -= toRemove;
     }
 
     /**

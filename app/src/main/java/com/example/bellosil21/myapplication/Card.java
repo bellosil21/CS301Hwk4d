@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author Kevin Hoser
  * @author Gabe Marcial
  */
-public class Card implements Serializable {
+public class Card implements Serializable, Slot{
 
     /**
      * Defines the type of suits in a standard 52 card deck.
@@ -109,11 +109,7 @@ public class Card implements Serializable {
     }
 
     /**
-     * TODO: This to string doesnt make too much sense yet
-     * We have to find a way to print what the suit and rank
-     * is for the tostring method....
-     *
-     * @return a message representing a card
+     * @return a String representing a card
      */
     @Override
     public String toString(){

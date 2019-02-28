@@ -26,8 +26,11 @@ public class PokerGameState implements Serializable {
     private int smallBlind;        // Current small blind betting amount
     private int bigBlind;          // Current big blind betting amount
 
-    private ArrayList<ChipCollection> playersChips; // Array of chip amount for players
-    private ChipCollection pot;    // Current winnings
+    private ArrayList<PlayerChipCollection> playersChips; // Array of chip amount for players
+
+    private BetTracker bets;       // tracks the pot and maximum bet
+    private TurnTracker turn;      // tracks whose turn it is
+
 
 
     /** constants */
@@ -54,11 +57,14 @@ public class PokerGameState implements Serializable {
         smallBlind = startingSmall;
         bigBlind = startingBig;
 
-        playersChips = new ArrayList<ChipCollection>();
+        playersChips = new ArrayList<PlayerChipCollection>();
         for (int i = 0; i < numPlayers; i++){
-            playersChips.add(new ChipCollection(startingChips));
+            playersChips.add(new PlayerChipCollection(startingChips, i));
         }
-        pot = new ChipCollection(startingChips);
+
+        bets = new BetTracker(playersChips);
+
+        turn = new TurnTracker(playersChips, dealerID);
     }
 
     /**
@@ -86,12 +92,50 @@ public class PokerGameState implements Serializable {
         smallBlind = toCopy.smallBlind;
         bigBlind = toCopy.bigBlind;
 
-        playersChips = new ArrayList<ChipCollection>();
-        for (ChipCollection cc : toCopy.playersChips) {
-            playersChips.add(new ChipCollection(cc));
+        playersChips = new ArrayList<PlayerChipCollection>();
+        for (PlayerChipCollection cc : toCopy.playersChips) {
+            playersChips.add(new PlayerChipCollection(cc));
         }
 
-        pot = new ChipCollection(toCopy.pot);
+        bets = new BetTracker(toCopy.bets);
+
+        turn = new TurnTracker(toCopy.turn);
+    }
+
+    /**
+     * Copy Constructor that only gives players their hand and does not give them the deck. All
+     * other instance vars are given.
+     *
+     * @param toCopy    the PokerGameState to copy
+     * @param playerID  the playerID that is given this copy of the game state
+     */
+    public PokerGameState(PokerGameState toCopy, int playerID) {
+        playingDeck = null;
+
+        hands = new ArrayList<Hand>();
+        for (Hand h : toCopy.hands) {
+            hands.add(new Hand(h));
+        }
+
+        communityCards = new ArrayList<Card>();
+        for (Card c : toCopy.communityCards) {
+            communityCards.add(new Card(c));
+        }
+
+        roundNumber = toCopy.roundNumber;
+        dealerID = toCopy.dealerID;
+
+        smallBlind = toCopy.smallBlind;
+        bigBlind = toCopy.bigBlind;
+
+        playersChips = new ArrayList<PlayerChipCollection>();
+        for (PlayerChipCollection cc : toCopy.playersChips) {
+            playersChips.add(new PlayerChipCollection(cc));
+        }
+
+        bets = new BetTracker(toCopy.bets);
+
+        turn = new TurnTracker(toCopy.turn);
     }
 
     /**
@@ -99,19 +143,20 @@ public class PokerGameState implements Serializable {
      *
      * @return a string that contains the description of the game state.
      */
+    @Override
     public String toString() {
         // creates toReturn string variable
         String toReturn = playingDeck.toString();
         // for loop iterates the player's hand array to determine which cards the player has
         for (int i = 0; i < hands.size(); i++) {
             // prints out the cards that are in the player's hand
-            toReturn += "\nPlayer One's Hand: " + hands.get(i);
+            toReturn += "\nPlayer " + (i + 1) + "'s Hand: " + hands.get(i).toString();
         }
         // states which community cards are currently on the table
         toReturn += "\n\nCommunity Cards:";
         // iterates through the community cards array and prints them out
-        for (Card d : communityCards) {
-            toReturn += " " + d.toString();
+        for (Card c : communityCards) {
+            toReturn += " " + c.toString();
         }
         // states the current round number
         toReturn += "\nRound Number: " + roundNumber;
@@ -123,86 +168,64 @@ public class PokerGameState implements Serializable {
         toReturn += "\nBig Blind: " + bigBlind;
         // iterates through the player's chip amount and states how much money they have
         for (int i = 0; i < playersChips.size(); i++) {
-            toReturn += "\nPlayer One's Chips: " + playersChips.get(i);
+            toReturn += "\nPlayer " + (i + 1) + ": " + playersChips.toString();
         }
-        // states the current amount of the pot
-        toReturn += "\nCurrent Pot: " + pot;
+        // states the current amount of the pot and
+        toReturn += "\n" + bets.toString();
+        toReturn += "\n" + turn.toString();
 
         return toReturn;
     }
 
     /** Game Actions */
 
-    public boolean placeBets(int chipsBetIn, ChipCollection player){
-        if (chipsBetIn > player.getChips()){ return false; }
+    public boolean placeBets(int playerID, int amount){
+        return bets.submitBet(playerID, amount);
+    }
 
-        int newChipAmount = player.getChips() - chipsBetIn;
-        player.setChips(newChipAmount);
-
+    public boolean fold(int playerID){
+        //TODO: use the TurnTacker to see if it's the players current turn. If it is, set the
+        // player's hasFolded to true.
         return true;
     }
 
-    // TODO: Change all methods to reflect parameter of PlayerID
-    public boolean fold(boolean isTurn, boolean inGame){
-        if (isTurn) {
-            return true;
-        }
-        if (inGame){
-            return true;
-        }
-        return false;
+    /* we need to find a way to assign 'hands'
+     * do inividual players
+      * */
+    public boolean showCards(int playerID, boolean isLeftCard, boolean isRightCard){
+        //TODO: make two booleans in Hand.java that correlated if the left and right card has
+        // been shown. Then set that boolean appropriately in this method.
+        return true;
     }
 
-    public boolean showCards(boolean wonRound){
-        if (wonRound){
-            return true;
-        }
-        else{
-            return false;
-        }
+    public boolean hideCards(int playerID, boolean isLeftCard, boolean isRightCard){
+        //TODO: see the TODO in showCards; set the boolean in Hand.java appropriately in this
+        // method.
+        return true;
     }
 
-    public boolean hideCards(boolean wonRound){
-        if (wonRound){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    /**added by gabe
-     * turn will be an intID.
-     * if id = 0 than its the first person's turn
-     * @param placedBet will be true if someone in the current round has
-     *                  placed a bet, meeaning the action
+    /**
+     *
+     * Checks to see if it is the current player's turn and if there any current bets. If not
+     * return true.
+     * @param playerID
      * @return
      */
-    public boolean Check(boolean placedBet){
-        if(placedBet) //a place has been checked.
-        {
-            //than have it print: "Illegal move" or something.
-            return false;
+    public boolean check(int playerID){
+        if(turn.getActivePlayerID() == playerID && bets.getMaxBet() == 0){
+            return true;
         }
+        return false;
+    }
 
+    public boolean call(int playerID){
+        //TODO: submit a placeBet() with the current maxBet from the BetTracker
         return true;
-
     }
 
-    public boolean call(int leftToBet, ChipCollection player){
-        if (player.getChips() >= leftToBet){
-            int newChipAmount = player.getChips() - leftToBet;
-            player.setChips(newChipAmount);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean allIn(boolean inGame){
-        if (inGame){
-            return true;
-        }
-        return false;
+    public boolean allIn(int playerID){
+        //TODO: reference placeBets() with the player's max bet amount
+        return true;
     }
 
     /**
