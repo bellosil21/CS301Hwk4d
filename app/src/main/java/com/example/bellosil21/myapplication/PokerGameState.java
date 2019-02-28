@@ -158,8 +158,7 @@ public class PokerGameState implements Serializable {
     public String toString() {
         // creates toReturn string variable
         String toReturn = "";
-        String deckToString = playingDeck.toString();
-        if(deckToString == null){
+        if(playingDeck == null){
             toReturn += "The deck is hidden";
         }
         else{
