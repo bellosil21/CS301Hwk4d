@@ -154,7 +154,14 @@ public class PokerGameState implements Serializable {
     @Override
     public String toString() {
         // creates toReturn string variable
-        String toReturn = playingDeck.toString();
+        String toReturn = "";
+        String deckToString = playingDeck.toString();
+        if(deckToString == null){
+            toReturn += "The deck is hidden";
+        }
+        else{
+            toReturn = playingDeck.toString();
+        }
         // for loop iterates the player's hand array to determine which cards the player has
         for (int i = 0; i < hands.size(); i++) {
             // prints out the cards that are in the player's hand
