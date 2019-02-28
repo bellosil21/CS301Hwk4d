@@ -87,10 +87,11 @@ public class PokerGameState implements Serializable {
     public PokerGameState(PokerGameState toCopy, int playerID) {
         playingDeck = null;
 
-        // only pass the player their hand; otherwise, pass blank hands for the other players
+        // only pass the player their hand or the hand's showCards is true; otherwise, pass blank
+        // hands for the other players
         hands = new ArrayList<Hand>();
-        for (int i = 0; i < playersChips.size(); i++) {
-            if (i == playerID) {
+        for (int i = 0; i < toCopy.hands.size(); i++) {
+            if (i == playerID || toCopy.hands.get(i).isShowCards()) {
                 hands.add(new Hand(toCopy.hands.get(i)));
             } else {
                 hands.add(new Hand());

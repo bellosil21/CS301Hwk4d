@@ -29,19 +29,13 @@ public class Hand implements Serializable{
 
     /**
      * Copy constructor
-     * Copies the cards into a new hand. Will only pass a Card if show(Left/Right) is true. Else,
-     * a BlankCard is copied.
+     * Copies the cards into a new hand.
      *
      * @param toCopy    the Hand to copy
      */
     public Hand(Hand toCopy) {
-        if (toCopy.showCards) {
-            hole1 = new Card((Card)toCopy.hole1);
-            hole2 = new Card((Card)toCopy.hole2);
-        } else {
-            hole1 = new BlankCard();
-            hole2 = new BlankCard();
-        }
+        hole1 = new Card((Card)toCopy.hole1);
+        hole2 = new Card((Card)toCopy.hole2);
         showCards = toCopy.showCards;
     }
 
@@ -52,6 +46,10 @@ public class Hand implements Serializable{
      */
     public void setShowCards(boolean isShown) {
         showCards = isShown;
+    }
+
+    public boolean isShowCards() {
+        return showCards;
     }
 
     public void setHole1(CardSlot hole1) {
@@ -68,7 +66,7 @@ public class Hand implements Serializable{
      * @return a string describing the cards in hand
      */
     public String toString(){
-        return "Card1: " + hole1.toString() + "\t" +
+        return "Card1: " + hole1.toString() + " " +
                 "Card2 : " + hole2.toString() +
                 " showCards: " + showCards;
     }

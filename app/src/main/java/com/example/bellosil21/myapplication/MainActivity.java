@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /* call the toString method on the fourth and second instance *?*/
         String second = secondInstance.toString();
         String fourth = fourthInstance.toString();
-
         gameState.append("\n" + second);
         gameState.append("\n"+ fourth);
 
