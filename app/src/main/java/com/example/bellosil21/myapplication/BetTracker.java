@@ -67,6 +67,16 @@ public class BetTracker {
     }
 
     /**
+     * Registers a call action by switching the hasCalled boolean in the PlayerChipCollection to
+     * true
+     *
+     * @param playerID  the ID of the player that's calling
+     */
+    public void call(int playerID) {
+        players.get(playerID).setHasCalled(true);
+    }
+
+    /**
      *
      * getter method
      * @return

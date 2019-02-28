@@ -179,10 +179,32 @@ public class PokerGameState implements Serializable {
 
     /** Game Actions */
 
+    /**
+     * Submits a bet if it's the player's turn and goes to the next turn.
+     *
+     * @param playerID  the ID of the player giving the action
+     * @param amount    the amount that the player is submitting
+     * @return  true if the bet is valid and it is the player's turn
+     */
     public boolean placeBets(int playerID, int amount){
-        return bets.submitBet(playerID, amount);
+        if (turn.getActivePlayerID() != playerID) {
+            return false;
+        }
+
+        if (bets.submitBet(playerID, amount)) {
+            turn.nextTurn();
+            return true;
+        }
+
+        return false;
     }
 
+    /**
+     * Folds the player's hand if it's their turn and goes to the next turn.
+     *
+     * @param playerID  the ID of the player giving the action
+     * @return  true if the action was valid and it is the player's turn
+     */
     public boolean fold(int playerID){
         //TODO: use the TurnTacker to see if it's the players current turn. If it is, set the
         if (turn.getActivePlayerID() != playerID){
@@ -190,75 +212,70 @@ public class PokerGameState implements Serializable {
         }
 
         playersChips.get(playerID).setHasFolded(true);
+        turn.nextTurn();
 
         // player's hasFolded to true.
         return true;
     }
 
-    /* we need to find a way to assign 'hands'
-     * do inividual players
-      * */
-    public boolean showCards(int playerID, boolean isLeftCard, boolean isRightCard){
-        //TODO: make two booleans in Hand.java that correlated if the left and right card has
-        // been shown. Then set that boolean appropriately in this method.
-
-        if (playerID == turn.getActivePlayerID()){
-            return false;
-        }
-
-        hands.get(playerID).setShowRight(false);
-        hands.get(playerID).setShowLeft(false);
-
-        // method.
-        return true;
-    }
-
-    public boolean hideCards(int playerID, boolean isLeftCard, boolean isRightCard){
-        //TODO: see the TODO in showCards; set the boolean in Hand.java appropriately in this
-        if (playerID == turn.getActivePlayerID()){
-            return false;
-        }
-
-        hands.get(playerID).setShowRight(false);
-        hands.get(playerID).setShowLeft(false);
-
-        // method.
-        return true;
+    /**
+     * Shows or hides a player's cards.
+     *
+     * @param playerID  the ID of the player showing a card
+     * @param isShown   true if the player wants to show their cards
+     */
+    public void showHideCards(int playerID, boolean isShown){
+        hands.get(playerID).setShowCards(isShown);
     }
 
     /**
-     *
      * Checks to see if it is the current player's turn and if there any current bets. If not
-     * return true.
-     * @param playerID
-     * @return
+     * return true and go to next turn.
+     *
+     * @param playerID  ID of the player
+     * @return  true if the maxBet == 0 and it is the player's turn
      */
     public boolean check(int playerID){
         if(turn.getActivePlayerID() == playerID && bets.getMaxBet() == 0){
+            turn.nextTurn();
             return true;
         }
         return false;
     }
 
+    /**
+     * Calls the current pot and goes to the next turn.
+     *
+     * @param playerID  ID of the player
+     * @return true if is the player's turn
+     */
     public boolean call(int playerID){
-        //TODO: submit a placeBet() with the current maxBet from the BetTracker
+        if (turn.getActivePlayerID() != playerID) {
+            return false;
+        }
+
+        bets.call(playerID);
+        turn.nextTurn();
         return true;
     }
 
     /**
+     * Submits the maximum bet the player can make and goes to the next turn.
      *
-     * checks to see if it is the current player's turn. If it is an instance of the player's
-     * chip amount is set to the integer bets. Then the player's chip amount is removed from
-     * their personal pot and is placed as a bet.
-     * @param playerID
-     * @return
+     * @param playerID  the ID of the player
+     * @return  true if the bet was valid and it is the player's turn.
      */
     public boolean allIn(int playerID){
-        if(turn.getActivePlayerID() == playerID){
-            int bet = playersChips.get(playerID).getChips();
-            playersChips.get(playerID).removeChips(bet);
-            return bets.submitBet(playerID, bet);
+        if(turn.getActivePlayerID() != playerID){
+            return false;
         }
+
+        if (bets.submitBet(playerID, playersChips.get(playerID).getChips())) {
+
+            turn.nextTurn();
+            return true;
+        }
+
         return false;
     }
 

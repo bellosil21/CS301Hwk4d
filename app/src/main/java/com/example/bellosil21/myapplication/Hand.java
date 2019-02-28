@@ -1,7 +1,6 @@
 package com.example.bellosil21.myapplication;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Defines the cards in a player's hand.
@@ -13,14 +12,11 @@ import java.util.ArrayList;
  */
 public class Hand implements Serializable{
 
-    // Declares the left card in the player's hand
-    private Slot hole1;
-    // Declares the right card in the player's hand
-    private Slot hole2;
-    // Declares the player's left card hidden from the other players
-    private boolean showLeft;
-    // Declares the player's right card hidden from the other players
-    private boolean showRight;
+    // Declares the cards in a player's hand
+    private CardSlot hole1;
+    private CardSlot hole2;
+    // Determines if other players can see this player's cards
+    private boolean showCards;
 
     /**
      * A player's hand is composed of two cards from the deck.
@@ -31,8 +27,7 @@ public class Hand implements Serializable{
     public Hand(Card hole1, Card hole2){
         this.hole1 = hole1;
         this.hole2 = hole2;
-        showLeft = false;
-        showRight = false;
+        showCards = false;
     }
 
     /**
@@ -43,36 +38,23 @@ public class Hand implements Serializable{
      * @param toCopy    the Hand to copy
      */
     public Hand(Hand toCopy) {
-        if (toCopy.showLeft) {
+        if (toCopy.showCards) {
             hole1 = new Card((Card)toCopy.hole1);
-        } else {
-            hole1 = new BlankCard();
-        }
-        if (toCopy.showRight) {
             hole2 = new Card((Card)toCopy.hole2);
         } else {
+            hole1 = new BlankCard();
             hole2 = new BlankCard();
         }
-        showLeft = toCopy.showLeft;
-        showRight = toCopy.showRight;
+        showCards = toCopy.showCards;
     }
 
     /**
-     * Sets the boolean value if left card is to be shown
+     * Sets the boolean value if the cards are to be shown
      *
-     * @param isShown - boolean if card is to be shown
+     * @param isShown - boolean if the cards are to be shown
      */
-    public void setShowLeft(boolean isShown) {
-        showLeft = isShown;
-    }
-
-    /**
-     * Sets the boolean value if right card is to be shown
-     *
-     * @param isShown - boolean if card is to be shown
-     */
-    public void setShowRight(boolean isShown){
-        showRight = isShown;
+    public void setShowCards(boolean isShown) {
+        showCards = isShown;
     }
 
     /**
@@ -82,7 +64,8 @@ public class Hand implements Serializable{
      */
     public String toString(){
         return "Card1:" + hole1.toString() + "\n" +
-                "Card2: " + hole2.toString();
+                "Card2: " + hole2.toString() +
+                "showCards: " + showCards;
     }
 
 }

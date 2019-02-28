@@ -8,7 +8,7 @@ package com.example.bellosil21.myapplication;
  * @author Kevin Hoser
  * @author Gabe Marcial
  */
-public interface Slot {
+public interface CardSlot {
 
     //This interface is a place holder for cards.
 
