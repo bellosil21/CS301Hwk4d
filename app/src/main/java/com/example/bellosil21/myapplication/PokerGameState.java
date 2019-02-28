@@ -270,22 +270,19 @@ public class PokerGameState implements Serializable {
     }
 
     /**
-     * Submits the maximum bet the player can make and goes to the next turn.
      *
+     * checks to see if it is the current player's turn. If it is an instance of the player's
+     * chip amount is set to the integer bets. Then the player's chip amount is removed from
+     * their personal pot and is placed as a bet.
      * @param playerID  the ID of the player
      * @return  true if the bet was valid and it is the player's turn.
      */
     public boolean allIn(int playerID){
-        if(turn.getActivePlayerID() != playerID){
-            return false;
+        if(turn.getActivePlayerID() == playerID){
+            int bet = playersChips.get(playerID).getChips();
+            playersChips.get(playerID).removeChips(bet);
+            return bets.submitBet(playerID, bet);
         }
-
-        if (bets.submitBet(playerID, playersChips.get(playerID).getChips())) {
-
-            turn.nextTurn();
-            return true;
-        }
-
         return false;
     }
 
