@@ -11,12 +11,14 @@ import java.util.ArrayList;
  * @author Gabe Marcial
  */
 public class BetTracker {
-
-    private ArrayList<PlayerChipCollection> players; //all player chip collections
-    private int maxBet; // the maximum bet that has taken place before everyone has called in
-                        // order to move on to the next playing phase
-    private ChipCollection pot; // the winnings
-
+    //all player chip collections
+    private ArrayList<PlayerChipCollection> players;
+    // the maximum bet that has taken place before everyone has called in
+    // order to move on to the next playing phase
+    private int maxBet;
+    // the winnings
+    private ChipCollection pot;
+    // sets default pot size to 0
     public static final int DEFAULT_POT_SIZE = 0;
 
     public BetTracker(ArrayList<PlayerChipCollection> players) {
@@ -62,6 +64,16 @@ public class BetTracker {
         promptOtherPlayers(playerID);
 
         return true;
+    }
+
+    /**
+     * Registers a call action by switching the hasCalled boolean in the PlayerChipCollection to
+     * true
+     *
+     * @param playerID  the ID of the player that's calling
+     */
+    public void call(int playerID) {
+        players.get(playerID).setHasCalled(true);
     }
 
     /**
