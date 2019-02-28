@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         boolean action2 = firstInstance.placeBets((playerID[2]), STARTING_BIG);
         gameState.append("\nPlayer 3 is the small blind and has put in the next higher bet. - " + action2);
         boolean action3 = firstInstance.fold(playerID[2]);
-        gameState.append("\nPlayer 3 has folded for this turn. - " + action3 + " Because its not Player 3's turn.");
+        gameState.append("\nPlayer 3 has folded for this turn. - " + action3 + " because its not " +
+                "Player 3's turn.");
 
         /* assuming a player can show cards whenever and its a legal move.*/
         boolean action4 = firstInstance.showHideCards(playerID[0], true);
@@ -61,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         /* not a legal move but just putting it here. */
         boolean action6 =firstInstance.check(playerID[3]);
-        gameState.append("\nPlayer 4 has checked for this round. - " + action6 + " Because there is a bet that is not 0 in this turn.");
+        gameState.append("\nPlayer 4 has checked for this round. - " + action6 + " because there " +
+                "is a bet that is not 0 in this turn.");
         boolean action7 =firstInstance.call(playerID[3]);
         gameState.append("\nPlayer 4 has called. - " + action7);
         boolean action8 =firstInstance.allIn(playerID[0]);
