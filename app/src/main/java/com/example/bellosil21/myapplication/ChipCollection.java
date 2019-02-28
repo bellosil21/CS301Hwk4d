@@ -11,8 +11,8 @@ import java.io.Serializable;
  * @author Gabe Marcial
  */
 public class ChipCollection implements Serializable{
-
-    protected int amount; // the amount of chips contains in the collection.
+    // the amount of chips contains in the collection
+    protected int amount;
 
     public ChipCollection(int amount){
         this.amount = amount;
