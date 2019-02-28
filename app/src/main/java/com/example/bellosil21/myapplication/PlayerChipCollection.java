@@ -13,6 +13,8 @@ public class PlayerChipCollection extends ChipCollection {
     private int playerID;
     private boolean hasFolded; //whether or not the player has folded
     private boolean hasCalled; //whether or not the player has called
+    // to keep track of most recent bet in case of a raise
+    private int lastBet;
 
     /**
      * Assigns player data to a ChipCollection
@@ -25,6 +27,7 @@ public class PlayerChipCollection extends ChipCollection {
         this.playerID = id;
         hasFolded = false;
         hasCalled = false;
+        lastBet = 0;
     }
 
     /**
@@ -35,6 +38,7 @@ public class PlayerChipCollection extends ChipCollection {
         this.playerID = toCopy.playerID;
         hasFolded = toCopy.hasFolded;
         hasCalled = toCopy.hasCalled;
+        lastBet = toCopy.lastBet;
     }
 
     /**
@@ -71,6 +75,14 @@ public class PlayerChipCollection extends ChipCollection {
      */
     public void setHasCalled(boolean hasCalled) {
         this.hasCalled = hasCalled;
+    }
+
+    public void setLastBet(int lastBet) {
+        this.lastBet = lastBet;
+    }
+
+    public int getLastBet() {
+        return lastBet;
     }
 
     /**

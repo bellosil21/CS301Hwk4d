@@ -50,7 +50,7 @@ public class BetTracker {
      * @param betAmount the amount that the player is betting
      * @return  true if the bet is valid
      */
-    public boolean submitBet(int playerID, int betAmount) {
+    public boolean raiseBet(int playerID, int betAmount) {
         if (betAmount <= maxBet) {
             return false;
         }
@@ -60,6 +60,12 @@ public class BetTracker {
         }
 
         maxBet = betAmount;
+        // this number represents the players previous during the same betting phase
+        int lastBet = players.get(playerID).getLastBet();
+        // removes the player's bet amount from his personal pot subtracting his last bet
+        players.get(playerID).removeChips(maxBet-lastBet);
+        // adds the max bet to the pot
+        pot.addChips(maxBet);
 
         promptOtherPlayers(playerID);
 
@@ -89,18 +95,6 @@ public class BetTracker {
         this.maxBet = maxBet;
     }
 
-    /**
-     * After everyone has called the maximum bet, we take everyone's bets and place them into the
-     * pot.
-     */
-    public void moveBetsToPot() {
-        for (PlayerChipCollection p : players) {
-            if (!p.hasFolded() && p.hasCalled()) {
-                p.removeChips(maxBet);
-                pot.addChips(maxBet);
-            }
-        }
-    }
 
     /**
      * Sets the hasCalled variable of the current players to false, besides the player that

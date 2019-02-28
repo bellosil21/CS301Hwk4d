@@ -2,7 +2,6 @@ package com.example.bellosil21.myapplication;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Defines the game state to play Poker.
@@ -201,7 +200,7 @@ public class PokerGameState implements Serializable {
             return false;
         }
 
-        if (bets.submitBet(playerID, amount)) {
+        if (bets.raiseBet(playerID, amount)) {
             turn.nextTurn();
             return true;
         }
@@ -281,7 +280,7 @@ public class PokerGameState implements Serializable {
         if(turn.getActivePlayerID() == playerID){
             int bet = playersChips.get(playerID).getChips();
             playersChips.get(playerID).removeChips(bet);
-            return bets.submitBet(playerID, bet);
+            return bets.raiseBet(playerID, bet);
         }
         return false;
     }
