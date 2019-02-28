@@ -63,10 +63,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         firstInstance.allIn(playerID[0]);
         gameState.append("Player 1 has bet all his chips in.\n");
 
+        /*"create a new instance of the gamestate classs...*/
+        PokerGameState thirdInstance = new PokerGameState(STARTING_CHIPS, STARTING_SMALL, STARTING_BIG, NUM_PLAYERS);
+        PokerGameState fourthInstance = new PokerGameState(thirdInstance, playerID[0]);
 
+        /* call the toString method on the fourth and second instance *?*/
+        String second = secondInstance.toString();
+        String fourth = fourthInstance.toString();
 
+        gameState.append("\n" + second);
+        gameState.append("\n"+ fourth);
 
-        //TODO: finish the onClick() implmentation as noted on the assignment documentation using
+        /** checking if second and fourth string variables are identical*/
+        if(second.equals(fourth)){
+            gameState.append("\nTrue");
+        }
         // random playerIDs from 0 to 3 (4 players)
     }
 }
