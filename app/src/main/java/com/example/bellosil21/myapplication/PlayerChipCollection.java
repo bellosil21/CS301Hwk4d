@@ -11,8 +11,10 @@ package com.example.bellosil21.myapplication;
 public class PlayerChipCollection extends ChipCollection {
 
     private int playerID;
-    private boolean hasFolded; //whether or not the player has folded
-    private boolean hasCalled; //whether or not the player has called
+    //whether or not the player has folded
+    private boolean hasFolded;
+    //whether or not the player has called
+    private boolean hasCalled;
     // to keep track of most recent bet in case of a raise
     private int lastBet;
 
