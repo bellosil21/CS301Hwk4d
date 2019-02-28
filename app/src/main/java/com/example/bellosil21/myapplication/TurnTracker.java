@@ -15,7 +15,7 @@ public class TurnTracker {
     private ArrayList<PlayerChipCollection> players;
     //a player ID to track the current player's turn 0 <= activePlayerID < players.size()
     private int activePlayerID;
-    
+
     /**
      * The tracker requires the total amount of players and the player to take the first turn.
      *
