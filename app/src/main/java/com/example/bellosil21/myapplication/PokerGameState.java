@@ -47,8 +47,6 @@ public class PokerGameState implements Serializable {
 
     /**
      * Creates and initialize a new PokerGameState from given options.
-     * The starting dealerID is assigned to a random playerID that is
-     * between 1 and 1 minus the total amount of players.
      *
      * @param startingChips     starting amount of chips for each player
      * @param startingSmall     starting mandatory betting amount for small blind
@@ -64,7 +62,7 @@ public class PokerGameState implements Serializable {
         communityCards = new ArrayList<Card>();
 
         roundNumber = INIT_ROUND_NUM;
-        dealerID = (int) Math.random() * numPlayers;
+        dealerID = 0;
 
         smallBlind = startingSmall;
         bigBlind = startingBig;
