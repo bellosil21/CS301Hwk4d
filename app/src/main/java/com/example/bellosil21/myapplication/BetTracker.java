@@ -37,7 +37,7 @@ public class BetTracker {
         }
 
         this.maxBet = toCopy.maxBet;
-        this.pot = toCopy.pot;
+        this.pot = new ChipCollection(toCopy.pot);
     }
 
     /**
@@ -90,11 +90,6 @@ public class BetTracker {
     public int getMaxBet(){
         return maxBet;
     }
-
-    public void setMaxBet(int maxBet){
-        this.maxBet = maxBet;
-    }
-
 
     /**
      * Sets the hasCalled variable of the current players to false, besides the player that
