@@ -308,4 +308,11 @@ public class PokerGameState implements Serializable {
         return true;
     }
 
+    /**
+     * Give players their cards
+     */
+    public void deal() {
+        playingDeck.dealPlayers(hands);
+    }
+
 }

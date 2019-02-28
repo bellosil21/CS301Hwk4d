@@ -51,6 +51,13 @@ public class Deck implements Serializable{
         }
     }
 
+    public void dealPlayers(ArrayList<Hand> hands) {
+        for (Hand h : hands) {
+            h.setHole1(deckOfCards.remove(0));
+            h.setHole2(deckOfCards.remove(0));
+        }
+    }
+
     /**
      * Describes the deck.
      *

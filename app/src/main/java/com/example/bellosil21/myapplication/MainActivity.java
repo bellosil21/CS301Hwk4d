@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         PokerGameState firstInstance = new PokerGameState(STARTING_CHIPS, STARTING_SMALL,
                 STARTING_BIG, NUM_PLAYERS);
+        firstInstance.deal();
         /* player[0] is the perspective of player 1*/
         PokerGameState secondInstance = new PokerGameState(firstInstance, playerID[0]);
 
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         /*"create a new instance of the gameState*/
         PokerGameState thirdInstance = new PokerGameState(STARTING_CHIPS, STARTING_SMALL, STARTING_BIG, NUM_PLAYERS);
+        thirdInstance.deal();
         PokerGameState fourthInstance = new PokerGameState(thirdInstance, playerID[0]);
 
         /* call the toString method on the fourth and second instance *?*/

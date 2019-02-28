@@ -57,6 +57,14 @@ public class Hand implements Serializable{
         showCards = isShown;
     }
 
+    public void setHole1(CardSlot hole1) {
+        this.hole1 = hole1;
+    }
+
+    public void setHole2(CardSlot hole2) {
+        this.hole2 = hole2;
+    }
+
     /**
      * Describes the hand.
      *
