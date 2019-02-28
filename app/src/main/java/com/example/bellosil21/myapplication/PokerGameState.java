@@ -202,7 +202,7 @@ public class PokerGameState implements Serializable {
         //TODO: make two booleans in Hand.java that correlated if the left and right card has
         // been shown. Then set that boolean appropriately in this method.
 
-        if (playerID == turn.getActivePlayerID()){
+        if (playerID != turn.getActivePlayerID()){
             return false;
         }
 
@@ -215,7 +215,7 @@ public class PokerGameState implements Serializable {
 
     public boolean hideCards(int playerID, boolean isLeftCard, boolean isRightCard){
         //TODO: see the TODO in showCards; set the boolean in Hand.java appropriately in this
-        if (playerID == turn.getActivePlayerID()){
+        if (playerID != turn.getActivePlayerID()){
             return false;
         }
 
