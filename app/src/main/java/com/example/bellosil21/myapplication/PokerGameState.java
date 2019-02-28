@@ -15,21 +15,31 @@ import java.util.Arrays;
 public class PokerGameState implements Serializable {
 
     /** instance vars */
-    private Deck playingDeck;      // All cards in deck
-    private ArrayList<Hand> hands; //Array of Players hand
-    private ArrayList<Card> communityCards; // Array of Cards shared for community
+    // All cards in deck
+    private Deck playingDeck;
+    //Array of Players hand
+    private ArrayList<Hand> hands;
+    // Array of Cards shared for community
+    private ArrayList<Card> communityCards;
 
-    private int roundNumber;       // Current round
-    private int dealerID;          // Place holder to define who has BB, SB, and first better and
-                                   // a number between 0 and number of players minus 1
+    // Current round
+    private int roundNumber;
+    // Place holder to define who has BB, SB, and first better and a number between
+    // 0 and number of players minus 1
+    private int dealerID;
 
-    private int smallBlind;        // Current small blind betting amount
-    private int bigBlind;          // Current big blind betting amount
+    // Current small blind betting amount
+    private int smallBlind;
+    // Current big blind betting amount
+    private int bigBlind;
 
-    private ArrayList<PlayerChipCollection> playersChips; // Array of chip amount for players
+    // Array of chip amount for players
+    private ArrayList<PlayerChipCollection> playersChips;
 
-    private BetTracker bets;       // tracks the pot and maximum bet
-    private TurnTracker turn;      // tracks whose turn it is
+    // tracks the pot and maximum bet
+    private BetTracker bets;
+    // tracks whose turn it is
+    private TurnTracker turn;
 
 
 
