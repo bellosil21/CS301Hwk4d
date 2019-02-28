@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /** assuming a player can show cards whenever and its a legal move.*/
         firstInstance.showHideCards(playerID[0], true);
         gameState.append("Player 1 has shown there cards to the table.\n");
-        firstInstance.showHideCards(playerID[0], true);
+        firstInstance.showHideCards(playerID[0], false);
         gameState.append("Player 1 is hiding their cards.\n");
         /** not a legal move but just putting it here. */
         firstInstance.check(playerID[3]);
