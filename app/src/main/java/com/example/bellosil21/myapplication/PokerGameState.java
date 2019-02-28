@@ -249,7 +249,7 @@ public class PokerGameState implements Serializable {
      *
      * checks to see if it is the current player's turn. If it is an instance of the player's
      * chip amount is set to the integer bets. Then the player's chip amount is removed from
-     * their personal pot and is placed as a bet. 
+     * their personal pot and is placed as a bet.
      * @param playerID
      * @return
      */

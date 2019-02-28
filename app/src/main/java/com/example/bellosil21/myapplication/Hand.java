@@ -13,8 +13,9 @@ import java.util.ArrayList;
  */
 public class Hand implements Serializable{
 
-    // Declares the cards in a player's hand
+    // Declares the left card in the player's hand
     private Slot hole1;
+    // Declares the right card in the player's hand
     private Slot hole2;
     // Declares the player's left card hidden from the other players
     private boolean showLeft;
