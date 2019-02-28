@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gameState.append("\nPlayer 3 has folded for this turn.\n");
 
         /** assuming a player can show cards whenever and its a legal move.*/
-        firstInstance.showCards(playerID[0], true, true);
+        firstInstance.showHideCards(playerID[0], true);
         gameState.append("Player 1 has shown there cards to the table.\n");
-        firstInstance.hideCards(playerID[0], true, true);
+        firstInstance.showHideCards(playerID[0], true);
         gameState.append("Player 1 is hiding their cards.\n");
         /** not a legal move but just putting it here. */
         firstInstance.check(playerID[3]);
