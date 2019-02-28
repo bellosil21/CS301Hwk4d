@@ -19,7 +19,7 @@ public class Deck implements Serializable{
      * A deck is composed of all permutations of suits and rankings of a card.
      */
     public Deck() {
-        deckOfCards= new ArrayList<Card>();
+        deckOfCards = new ArrayList<Card>();
         for (Card.Suit s: Card.Suit.values()){
             for (Card.Rank r: Card.Rank.values()){
                 Card newCard = new Card(s,r);
