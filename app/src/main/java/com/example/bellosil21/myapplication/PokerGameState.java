@@ -58,6 +58,9 @@ public class PokerGameState implements Serializable {
     public PokerGameState(int startingChips, int startingSmall, int startingBig,int numPlayers){
         playingDeck = new Deck();
         hands = new ArrayList<Hand>();
+        for (int i = 0; i < numPlayers; i++) {
+            hands.add(new Hand());
+        }
         communityCards = new ArrayList<Card>();
 
         roundNumber = INIT_ROUND_NUM;

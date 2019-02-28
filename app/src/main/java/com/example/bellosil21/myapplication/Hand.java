@@ -19,14 +19,11 @@ public class Hand implements Serializable{
     private boolean showCards;
 
     /**
-     * A player's hand is composed of two cards from the deck.
-     *
-     * @param hole1     the first card in the player's hand
-     * @param hole2     the second card in the player's hand
+     * Initializes a hand to have two blank cards
      */
-    public Hand(Card hole1, Card hole2){
-        this.hole1 = hole1;
-        this.hole2 = hole2;
+    public Hand(){
+        this.hole1 = new BlankCard();
+        this.hole2 = new BlankCard();
         showCards = false;
     }
 
