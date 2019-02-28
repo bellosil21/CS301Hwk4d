@@ -225,6 +225,9 @@ public class PokerGameState implements Serializable {
 
     public boolean allIn(int playerID){
         //TODO: reference placeBets() with the player's max bet amount
+        if(turn.getActivePlayerID() == playerID){
+
+        }
         return true;
     }
 
