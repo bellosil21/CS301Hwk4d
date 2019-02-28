@@ -170,8 +170,12 @@ public class PokerGameState implements Serializable {
         // states which community cards are currently on the table
         toReturn += "\n\nCommunity Cards:";
         // iterates through the community cards array and prints them out
-        for (Card c : communityCards) {
-            toReturn += " " + c.toString();
+        if (communityCards.size() == 0) {
+            toReturn += " No community cards have been dealt.";
+        } else {
+            for (Card c : communityCards) {
+                toReturn += " " + c.toString();
+            }
         }
         // states the current round number
         toReturn += "\nRound Number: " + roundNumber;
@@ -183,7 +187,7 @@ public class PokerGameState implements Serializable {
         toReturn += "\nBig Blind: " + bigBlind;
         // iterates through the player's chip amount and states how much money they have
         for (int i = 0; i < playersChips.size(); i++) {
-            toReturn += "\nPlayer " + (i + 1) + ": " + playersChips.toString();
+            toReturn += "\nPlayer " + (i + 1) + ": " + playersChips.get(i);
         }
         // states the current amount of the pot and
         toReturn += "\n" + bets.toString();
