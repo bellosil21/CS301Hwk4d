@@ -41,8 +41,8 @@ public class TurnTracker {
         activePlayerID = toCopy.activePlayerID;
     }
 
-    public int nextTurn() {
-        return (activePlayerID + 1) % players.size();
+    public void nextTurn() {
+        activePlayerID = (activePlayerID + 1) % players.size();
     }
 
     public int getActivePlayerID() {

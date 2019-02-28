@@ -287,7 +287,6 @@ public class PokerGameState implements Serializable {
     public boolean allIn(int playerID){
         if(turn.getActivePlayerID() == playerID){
             int bet = playersChips.get(playerID).getChips();
-            playersChips.get(playerID).removeChips(bet);
             return bets.raiseBet(playerID, bet);
         }
         return false;

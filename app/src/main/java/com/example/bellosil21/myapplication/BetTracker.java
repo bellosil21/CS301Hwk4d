@@ -74,12 +74,23 @@ public class BetTracker {
     }
 
     /**
-     * Registers a call action by switching the hasCalled boolean in the PlayerChipCollection to
-     * true
+     * Calls the maxBet. If the player does not have enough chips to match the maxBet, then they
+     * will go all in.
+     * This method also sets the player's hasCalled boolean to true.
      *
      * @param playerID  the ID of the player that's calling
      */
     public void call(int playerID) {
+        int playerChips = players.get(playerID).getChips();
+
+        if (playerChips < maxBet) {
+            players.get(playerID).removeChips(playerChips);
+            pot.addChips(playerChips);
+        } else {
+            players.get(playerID).removeChips(maxBet);
+            pot.addChips(maxBet);
+        }
+
         players.get(playerID).setHasCalled(true);
     }
 
