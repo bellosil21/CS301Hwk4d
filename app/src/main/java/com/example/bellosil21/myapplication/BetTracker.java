@@ -24,6 +24,7 @@ public class BetTracker {
     public BetTracker(ArrayList<PlayerChipCollection> players) {
         this.players = players;
         this.pot = new ChipCollection(DEFAULT_POT_SIZE);
+        maxBet = 0;
     }
 
     /**

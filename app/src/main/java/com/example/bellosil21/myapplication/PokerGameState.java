@@ -143,7 +143,6 @@ public class PokerGameState implements Serializable {
         }
 
         bets = new BetTracker(toCopy.bets);
-
         turn = new TurnTracker(toCopy.turn);
     }
 
@@ -190,7 +189,8 @@ public class PokerGameState implements Serializable {
 
     /**
      * Submits a bet if it's the player's turn and goes to the next turn.
-     *
+     * this is equivalent to Raise action which is why
+     * we call the raise method from the BetTracker class.
      * @param playerID  the ID of the player giving the action
      * @param amount    the amount that the player is submitting
      * @return  true if the bet is valid and it is the player's turn
@@ -215,7 +215,6 @@ public class PokerGameState implements Serializable {
      * @return  true if the action was valid and it is the player's turn
      */
     public boolean fold(int playerID){
-        //TODO: use the TurnTacker to see if it's the players current turn. If it is, set the
         if (turn.getActivePlayerID() != playerID){
             return false;
         }

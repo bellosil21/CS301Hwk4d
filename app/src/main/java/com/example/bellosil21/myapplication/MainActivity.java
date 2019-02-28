@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int NUM_PLAYERS = 4;
 
     //max number of players is 4
-    public int[] playerID = new int[4];
+    public int[] playerID = {0,1,2,3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +50,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         firstInstance.fold(playerID[2]);
         gameState.append("\nPlayer 3 has folded for this turn.\n");
 
-        /** assuming a player can show cards whenever and its a legal move.*/
+        /* assuming a player can show cards whenever and its a legal move.*/
         firstInstance.showHideCards(playerID[0], true);
         gameState.append("Player 1 has shown there cards to the table.\n");
         firstInstance.showHideCards(playerID[0], false);
         gameState.append("Player 1 is hiding their cards.\n");
-        /** not a legal move but just putting it here. */
+
+        /* not a legal move but just putting it here. */
         firstInstance.check(playerID[3]);
         gameState.append("Player 4 has checked for this round.\n");
         firstInstance.call(playerID[3]);
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         firstInstance.allIn(playerID[0]);
         gameState.append("Player 1 has bet all his chips in.\n");
 
-        /*"create a new instance of the gamestate classs...*/
+        /*"create a new instance of the gameState*/
         PokerGameState thirdInstance = new PokerGameState(STARTING_CHIPS, STARTING_SMALL, STARTING_BIG, NUM_PLAYERS);
         PokerGameState fourthInstance = new PokerGameState(thirdInstance, playerID[0]);
 
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gameState.append("\n" + second);
         gameState.append("\n"+ fourth);
 
-        /** checking if second and fourth string variables are identical*/
+        /* checking if second and fourth string variables are identical*/
         if(second.equals(fourth)){
             gameState.append("\nTrue");
         }
