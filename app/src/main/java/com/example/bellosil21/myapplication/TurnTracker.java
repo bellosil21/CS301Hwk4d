@@ -44,10 +44,18 @@ public class TurnTracker {
         activePlayerID = toCopy.activePlayerID;
     }
 
+    /**
+     * Changes the turn for the next player.
+     */
     public void nextTurn() {
         activePlayerID = (activePlayerID + 1) % players.size();
     }
 
+    /**
+     * Returns the player ID of who's turn
+     * it is.
+     * @return The current player's turn.
+     */
     public int getActivePlayerID() {
         return activePlayerID;
     }
