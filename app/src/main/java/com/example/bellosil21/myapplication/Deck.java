@@ -51,6 +51,14 @@ public class Deck implements Serializable{
         }
     }
 
+
+    /**
+     * Deals all hands the top card in the deck. A card is dealt by removing it to the deck and
+     * adding it to a hand. We do not need to check if the deck is empty since the deck will
+     * never run out of cards with 8 players or less.
+     *
+     * @param hands the array of player hands
+     */
     public void dealPlayers(ArrayList<Hand> hands) {
         for (Hand h : hands) {
             h.setHole1(deckOfCards.remove(0));

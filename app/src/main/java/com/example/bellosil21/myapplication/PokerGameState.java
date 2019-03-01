@@ -266,22 +266,17 @@ public class PokerGameState implements Serializable {
         return false;
     }
 
-    /**
-     * these methods should probably return true uncondtionally,
-     * since they arent techniquelly ever illegal moves but they
-     * are still actions.
-     */
-    public boolean menu(){
+
+    public boolean exit(int playerID){
+        if (turn.getActivePlayerID() == playerID) {
+            fold(playerID);
+        } else {
+            playersChips.get(playerID).setHasFolded(true);
+            turn.nextTurn();
+        }
         return true;
     }
 
-    public boolean exit(){
-        return true;
-    }
-
-    public boolean help(){
-        return true;
-    }
 
     /**
      * Give players their cards
