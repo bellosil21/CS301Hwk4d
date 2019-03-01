@@ -13,7 +13,9 @@ import java.util.ArrayList;
  */
 public class PokerGameState implements Serializable {
 
-    /** instance vars */
+    /**
+     * instance vars
+     */
     // all cards in deck
     private Deck playingDeck;
     // array of Players hand
@@ -23,7 +25,8 @@ public class PokerGameState implements Serializable {
 
     // current round
     private int roundNumber;
-    // place holder to define who has BB, SB, and first better and a number between
+    // place holder to define who has BB, SB, and first better and a number
+    // between
     // 0 and number of players minus 1
     private int dealerID;
 
@@ -41,19 +44,21 @@ public class PokerGameState implements Serializable {
     private TurnTracker turn;
 
 
-
-    /** constants */
+    /**
+     * constants
+     */
     private static final int INIT_ROUND_NUM = 1;
 
     /**
      * Creates and initialize a new PokerGameState from given options.
      *
-     * @param startingChips     starting amount of chips for each player
-     * @param startingSmall     starting mandatory betting amount for small blind
-     * @param startingBig       starting mandatory betting amount for big blind
-     * @param numPlayers        number of players in game
+     * @param startingChips starting amount of chips for each player
+     * @param startingSmall starting mandatory betting amount for small blind
+     * @param startingBig   starting mandatory betting amount for big blind
+     * @param numPlayers    number of players in game
      */
-    public PokerGameState(int startingChips, int startingSmall, int startingBig,int numPlayers){
+    public PokerGameState(int startingChips, int startingSmall,
+                          int startingBig, int numPlayers) {
         playingDeck = new Deck();
         hands = new ArrayList<Hand>();
         for (int i = 0; i < numPlayers; i++) {
@@ -68,7 +73,7 @@ public class PokerGameState implements Serializable {
         bigBlind = startingBig;
 
         playersChips = new ArrayList<PlayerChipCollection>();
-        for (int i = 0; i < numPlayers; i++){
+        for (int i = 0; i < numPlayers; i++) {
             playersChips.add(new PlayerChipCollection(startingChips, i));
         }
 
@@ -78,16 +83,18 @@ public class PokerGameState implements Serializable {
     }
 
     /**
-     * Copy Constructor that only gives players their hand and does not give them the deck. All
+     * Copy Constructor that only gives players their hand and does not give
+     * them the deck. All
      * other instance vars are given.
      *
-     * @param toCopy    the PokerGameState to copy
-     * @param playerID  the playerID that is given this copy of the game state
+     * @param toCopy   the PokerGameState to copy
+     * @param playerID the playerID that is given this copy of the game state
      */
     public PokerGameState(PokerGameState toCopy, int playerID) {
         playingDeck = null;
 
-        // only pass the player their hand or the hand's showCards is true; otherwise, pass blank
+        // only pass the player their hand or the hand's showCards is true;
+        // otherwise, pass blank
         // hands for the other players
         hands = new ArrayList<Hand>();
         for (int i = 0; i < toCopy.hands.size(); i++) {
@@ -127,13 +134,13 @@ public class PokerGameState implements Serializable {
     public String toString() {
         // creates toReturn string variable
         String toReturn = "\nPoker Game State:\n";
-        if(playingDeck == null){
+        if (playingDeck == null) {
             toReturn += "The deck of the game is hidden";
-        }
-        else{
+        } else {
             toReturn = playingDeck.toString();
         }
-        // for loop iterates the player's hand array to determine which cards the player has
+        // for loop iterates the player's hand array to determine which cards
+        // the player has
         for (int i = 0; i < hands.size(); i++) {
             // prints out the cards that are in the player's hand
             toReturn += "\nPlayer " + (i + 1) + "'s Hand: " + hands.get(i).toString();
@@ -156,7 +163,8 @@ public class PokerGameState implements Serializable {
         toReturn += "\nSmall Blind: " + smallBlind;
         // states the cost of the big blind
         toReturn += "\nBig Blind: " + bigBlind;
-        // iterates through the player's chip amount and states how much money they have
+        // iterates through the player's chip amount and states how much
+        // money they have
         for (int i = 0; i < playersChips.size(); i++) {
             toReturn += "\nPlayer " + (i + 1) + ": " + playersChips.get(i);
         }
@@ -173,11 +181,12 @@ public class PokerGameState implements Serializable {
      * Submits a bet if it's the player's turn and goes to the next turn.
      * this is equivalent to Raise action which is why
      * we call the raise method from the BetTracker class.
-     * @param playerID  the ID of the player giving the action
-     * @param amount    the amount that the player is submitting
-     * @return  true if the bet is valid and it is the player's turn
+     *
+     * @param playerID the ID of the player giving the action
+     * @param amount   the amount that the player is submitting
+     * @return true if the bet is valid and it is the player's turn
      */
-    public boolean placeBets(int playerID, int amount){
+    public boolean placeBets(int playerID, int amount) {
         if (turn.getActivePlayerID() != playerID) {
             return false;
         }
@@ -192,11 +201,11 @@ public class PokerGameState implements Serializable {
     /**
      * Folds the player's hand if it's their turn and goes to the next turn.
      *
-     * @param playerID  the ID of the player giving the action
-     * @return  true if the action was valid and it is the player's turn
+     * @param playerID the ID of the player giving the action
+     * @return true if the action was valid and it is the player's turn
      */
-    public boolean fold(int playerID){
-        if (turn.getActivePlayerID() != playerID){
+    public boolean fold(int playerID) {
+        if (turn.getActivePlayerID() != playerID) {
             return false;
         }
 
@@ -210,24 +219,25 @@ public class PokerGameState implements Serializable {
     /**
      * Shows or hides a player's cards.
      *
-     * @param playerID  the ID of the player showing a card
-     * @param isShown   true if the player wants to show their cards
-     * @return  true; this action is always valid
+     * @param playerID the ID of the player showing a card
+     * @param isShown  true if the player wants to show their cards
+     * @return true; this action is always valid
      */
-    public boolean showHideCards(int playerID, boolean isShown){
+    public boolean showHideCards(int playerID, boolean isShown) {
         hands.get(playerID).setShowCards(isShown);
         return true;
     }
 
     /**
-     * Checks to see if it is the current player's turn and if there any current bets. If not
+     * Checks to see if it is the current player's turn and if there any
+     * current bets. If not
      * return true and go to next turn.
      *
-     * @param playerID  ID of the player
-     * @return  true if the maxBet == 0 and it is the player's turn
+     * @param playerID ID of the player
+     * @return true if the maxBet == 0 and it is the player's turn
      */
-    public boolean check(int playerID){
-        if(turn.getActivePlayerID() == playerID && bets.getMaxBet() == 0){
+    public boolean check(int playerID) {
+        if (turn.getActivePlayerID() == playerID && bets.getMaxBet() == 0) {
             turn.nextTurn();
             return true;
         }
@@ -237,10 +247,10 @@ public class PokerGameState implements Serializable {
     /**
      * Calls the current pot and goes to the next turn.
      *
-     * @param playerID  ID of the player
+     * @param playerID ID of the player
      * @return true if is the player's turn
      */
-    public boolean call(int playerID){
+    public boolean call(int playerID) {
         if (turn.getActivePlayerID() != playerID) {
             return false;
         }
@@ -251,15 +261,17 @@ public class PokerGameState implements Serializable {
     }
 
     /**
-     *
-     * Checks to see if it is the current player's turn. If it is an instance of the player's
-     * chip amount is set to the integer bets. Then the player's chip amount is removed from
+     * Checks to see if it is the current player's turn. If it is an instance
+     * of the player's
+     * chip amount is set to the integer bets. Then the player's chip amount
+     * is removed from
      * their personal pot and is placed as a bet.
-     * @param playerID  the ID of the player
-     * @return  true if the bet was valid and it is the player's turn.
+     *
+     * @param playerID the ID of the player
+     * @return true if the bet was valid and it is the player's turn.
      */
-    public boolean allIn(int playerID){
-        if(turn.getActivePlayerID() == playerID){
+    public boolean allIn(int playerID) {
+        if (turn.getActivePlayerID() == playerID) {
             int bet = playersChips.get(playerID).getChips();
             return bets.raiseBet(playerID, bet);
         }
@@ -267,7 +279,7 @@ public class PokerGameState implements Serializable {
     }
 
 
-    public boolean exit(int playerID){
+    public boolean exit(int playerID) {
         if (turn.getActivePlayerID() == playerID) {
             fold(playerID);
         } else {

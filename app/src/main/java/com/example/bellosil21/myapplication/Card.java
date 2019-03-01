@@ -15,7 +15,7 @@ public class Card implements Serializable, CardSlot {
     /**
      * Defines the type of suits in a standard 52 card deck.
      */
-    public enum Suit{
+    public enum Suit {
         DIAMONDS,
         SPADES,
         CLUBS,
@@ -24,7 +24,7 @@ public class Card implements Serializable, CardSlot {
         public static final int NUM_OF_SUITS = 4;
 
         @Override
-        public String toString(){
+        public String toString() {
             return this.name();
         }
     }
@@ -33,7 +33,7 @@ public class Card implements Serializable, CardSlot {
      * Defines the type of rank in a standard 52 card deck
      * and assigns an integer value to weight enum.
      */
-    public enum Rank{
+    public enum Rank {
         TWO(1),
         THREE(2),
         FOUR(3),
@@ -51,15 +51,15 @@ public class Card implements Serializable, CardSlot {
         public static final int NUM_OF_RANKS = 13;
         private int numVal;
 
-        Rank(int numVal){
+        Rank(int numVal) {
             this.numVal = numVal;
         }
 
-        public int getValue(){
+        public int getValue() {
             return numVal;
         }
 
-        public String toString(){
+        public String toString() {
             return this.name();
         }
 
@@ -73,17 +73,19 @@ public class Card implements Serializable, CardSlot {
          */
     }
 
-    /** instance vars */
+    /**
+     * instance vars
+     */
     private Suit suit;
     private Rank rank;
 
     /**
      * A card is composed of a suit an rank.
      *
-     * @param suit  a suit (diamonds, spades, clubs, hearts_
-     * @param rank  a rank two through ace
+     * @param suit a suit (diamonds, spades, clubs, hearts_
+     * @param rank a rank two through ace
      */
-    public Card(Suit suit, Rank rank){
+    public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
     }
@@ -92,18 +94,18 @@ public class Card implements Serializable, CardSlot {
      * Copy constructor
      * Copies the suit and rank into a new card.
      *
-     * @param card  the Card to copy
+     * @param card the Card to copy
      */
     public Card(Card card) {
         this.suit = card.getSuit();
         this.rank = card.getRank();
     }
 
-    public Rank getRank(){
+    public Rank getRank() {
         return rank;
     }
 
-    public Suit getSuit(){
+    public Suit getSuit() {
         return suit;
     }
 
@@ -111,8 +113,8 @@ public class Card implements Serializable, CardSlot {
      * @return a String representing a card
      */
     @Override
-    public String toString(){
-        return rank.toString() +  " of " + suit.toString();
+    public String toString() {
+        return rank.toString() + " of " + suit.toString();
     }
 
 }

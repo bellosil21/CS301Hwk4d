@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author Kevin Hoser
  * @author Gabe Marcial
  */
-public class Deck implements Serializable{
+public class Deck implements Serializable {
 
     private ArrayList<Card> deckOfCards;
 
@@ -20,9 +20,9 @@ public class Deck implements Serializable{
      */
     public Deck() {
         deckOfCards = new ArrayList<Card>();
-        for (Card.Suit s: Card.Suit.values()){
-            for (Card.Rank r: Card.Rank.values()){
-                Card newCard = new Card(s,r);
+        for (Card.Suit s : Card.Suit.values()) {
+            for (Card.Rank r : Card.Rank.values()) {
+                Card newCard = new Card(s, r);
                 deckOfCards.add(newCard);
             }
         }
@@ -53,8 +53,9 @@ public class Deck implements Serializable{
 
 
     /**
-     * Deals all hands the top card in the deck. A card is dealt by removing it to the deck and
-     * adding it to a hand. We do not need to check if the deck is empty since the deck will
+     * Deals all hands the top card in the deck. A card is dealt by removing
+     * it to the deck and adding it to a hand.
+     * We do not need to check if the deck is empty since the deck will
      * never run out of cards with 8 players or less.
      *
      * @param hands the array of player hands
@@ -69,13 +70,13 @@ public class Deck implements Serializable{
     /**
      * Describes the deck.
      *
-     * @return a string describing the amount of cards left in the deck and prints out
-     * all the cards in the deck
+     * @return a string describing the amount of cards left in the deck and
+     * prints out all the cards in the deck
      */
     @Override
     public String toString() {
         String toReturn = deckOfCards.size() + " cards ";
-        for(Card c : deckOfCards){
+        for (Card c : deckOfCards) {
             toReturn += "\n" + c.toString();
         }
         return toReturn;

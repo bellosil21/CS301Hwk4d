@@ -1,6 +1,7 @@
 package com.example.bellosil21.myapplication;
 
 import java.util.ArrayList;
+
 /**
  * Keeps track of whose turn it is.
  *
@@ -12,17 +13,21 @@ import java.util.ArrayList;
 public class TurnTracker {
     // the amount of players in the game
     private ArrayList<PlayerChipCollection> players;
-    // a player ID to track the current player's turn 0 <= activePlayerID < players.size()
+    // a player ID to track the current player's turn 0 <= activePlayerID <
+    // players.size()
     private int activePlayerID;
 
     /**
-     * The tracker requires the total amount of players and the player to take the first turn.
+     * The tracker requires the total amount of players and the player to
+     * take the first turn.
      *
-     * @param  player   the ArrayList of all PlayerChipCollection in the game
-     * @param activePlayerID    the player to take the first turn;
-     *                          0 <= activePlayerID < players.size()
+     * @param player         the ArrayList of all PlayerChipCollection in the
+     *                      game
+     * @param activePlayerID the player to take the first turn;
+     *                       0 <= activePlayerID < players.size()
      */
-    public TurnTracker(ArrayList<PlayerChipCollection> player, int activePlayerID) {
+    public TurnTracker(ArrayList<PlayerChipCollection> player,
+                       int activePlayerID) {
         this.players = player;
         this.activePlayerID = activePlayerID;
     }

@@ -21,8 +21,8 @@ public class PlayerChipCollection extends ChipCollection {
     /**
      * Assigns player data to a ChipCollection.
      *
-     * @param amount    the amount of starting chips in the collection
-     * @param id    the player's id
+     * @param amount the amount of starting chips in the collection
+     * @param id     the player's id
      */
     public PlayerChipCollection(int amount, int id) {
         super(amount);
@@ -94,6 +94,7 @@ public class PlayerChipCollection extends ChipCollection {
      */
     @Override
     public String toString() {
-        return super.toString() + ", hasFolded is " + hasFolded + ", hasCalled is " + hasCalled;
+        return super.toString() + ", hasFolded is " + hasFolded + ", " +
+                "hasCalled is " + hasCalled;
     }
 }

@@ -10,11 +10,11 @@ import java.io.Serializable;
  * @author Kevin Hoser
  * @author Gabe Marcial
  */
-public class ChipCollection implements Serializable{
+public class ChipCollection implements Serializable {
     // the amount of chips contains in the collection
     protected int amount;
 
-    public ChipCollection(int amount){
+    public ChipCollection(int amount) {
         this.amount = amount;
     }
 
@@ -22,7 +22,7 @@ public class ChipCollection implements Serializable{
      * Copy constructor
      * Copies the chip amount in a new ChipCollection.
      *
-     * @param toCopy    the ChipCollection to copy
+     * @param toCopy the ChipCollection to copy
      */
     public ChipCollection(ChipCollection toCopy) {
         amount = toCopy.amount;
@@ -33,7 +33,7 @@ public class ChipCollection implements Serializable{
      *
      * @return The amount of Chips a Player has
      */
-    public int getChips(){
+    public int getChips() {
         return amount;
     }
 
@@ -41,7 +41,7 @@ public class ChipCollection implements Serializable{
         amount += toAdd;
     }
 
-    public void removeChips(int toRemove){
+    public void removeChips(int toRemove) {
         amount -= toRemove;
     }
 
@@ -51,7 +51,7 @@ public class ChipCollection implements Serializable{
      * @return a string describing the amount of chips in this chip collection
      */
     @Override
-    public String toString(){
+    public String toString() {
         return amount + " chips";
     }
 }

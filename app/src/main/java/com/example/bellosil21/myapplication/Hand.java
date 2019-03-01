@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author Kevin Hoser
  * @author Gabe Marcial
  */
-public class Hand implements Serializable{
+public class Hand implements Serializable {
 
     // declares the cards in a player's hand
     private CardSlot hole1;
@@ -21,7 +21,7 @@ public class Hand implements Serializable{
     /**
      * Initializes a hand to have two blank cards.
      */
-    public Hand(){
+    public Hand() {
         this.hole1 = new BlankCard();
         this.hole2 = new BlankCard();
         showCards = false;
@@ -31,11 +31,11 @@ public class Hand implements Serializable{
      * Copy constructor
      * Copies the cards into a new hand.
      *
-     * @param toCopy    the Hand to copy
+     * @param toCopy the Hand to copy
      */
     public Hand(Hand toCopy) {
-        hole1 = new Card((Card)toCopy.hole1);
-        hole2 = new Card((Card)toCopy.hole2);
+        hole1 = new Card((Card) toCopy.hole1);
+        hole2 = new Card((Card) toCopy.hole2);
         showCards = toCopy.showCards;
     }
 
@@ -65,7 +65,7 @@ public class Hand implements Serializable{
      *
      * @return a string describing the cards in hand
      */
-    public String toString(){
+    public String toString() {
         return "Card1: " + hole1.toString() + " " +
                 "Card2 : " + hole2.toString() +
                 " showCards: " + showCards;

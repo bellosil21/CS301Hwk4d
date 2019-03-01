@@ -42,14 +42,14 @@ public class BetTracker {
     }
 
     /**
-     * To be used with the GameAction. If the bet is valid, we prompt the other players to
-     * respond to the new bet.
-     * A bet is valid if it is greater than the maximum bet for the phase and if the player has
-     * enough chips to bet.
+     * To be used with the GameAction. If the bet is valid, we prompt the
+     * other players to respond to the new bet.
+     * A bet is valid if it is greater than the maximum bet for the phase and
+     * if the player has enough chips to bet.
      *
      * @param playerID  the ID of the player that's betting
      * @param betAmount the amount that the player is betting
-     * @return  true if the bet is valid
+     * @return true if the bet is valid
      */
     public boolean raiseBet(int playerID, int betAmount) {
         if (betAmount <= maxBet) {
@@ -61,10 +61,12 @@ public class BetTracker {
         }
 
         maxBet = betAmount;
-        // this number represents the players previous during the same betting phase
+        // this number represents the players previous during the same
+        // betting phase
         int lastBet = players.get(playerID).getLastBet();
-        // removes the player's bet amount from his personal pot subtracting his last bet
-        players.get(playerID).removeChips(maxBet-lastBet);
+        // removes the player's bet amount from his personal pot subtracting
+        // his last bet
+        players.get(playerID).removeChips(maxBet - lastBet);
         // adds the max bet to the pot
         pot.addChips(maxBet);
 
@@ -74,11 +76,11 @@ public class BetTracker {
     }
 
     /**
-     * Calls the maxBet. If the player does not have enough chips to match the maxBet, then they
-     * will go all in.
+     * Calls the maxBet. If the player does not have enough chips to match
+     * the maxBet, then they will go all in.
      * This method also sets the player's hasCalled boolean to true.
      *
-     * @param playerID  the ID of the player that's calling
+     * @param playerID the ID of the player that's calling
      */
     public void call(int playerID) {
         int playerChips = players.get(playerID).getChips();
@@ -95,19 +97,18 @@ public class BetTracker {
     }
 
     /**
-     *
-     * getter method
-     * @return
+     * Returns the maxBet
      */
-    public int getMaxBet(){
+    public int getMaxBet() {
         return maxBet;
     }
 
     /**
-     * Sets the hasCalled variable of the current players to false, besides the player that
-     * placed the bet.
+     * Sets the hasCalled variable of the current players to false, besides
+     * the player that placed the bet.
      *
-     * @param playerID  the ID of the player who placed the bet and does not need to call
+     * @param playerID the ID of the player who placed the bet and does not
+     *                 need to call
      */
     private void promptOtherPlayers(int playerID) {
         for (PlayerChipCollection p : players) {
