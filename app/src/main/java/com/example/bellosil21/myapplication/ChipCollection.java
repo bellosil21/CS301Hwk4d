@@ -14,6 +14,11 @@ public class ChipCollection implements Serializable {
     // the amount of chips contains in the collection
     protected int amount;
 
+    /** ChipCollection
+     * Keeps an object with a reference to the amount
+     * in the pot.
+     * @param amount
+     */
     public ChipCollection(int amount) {
         this.amount = amount;
     }

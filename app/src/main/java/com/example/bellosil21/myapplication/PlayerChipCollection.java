@@ -21,8 +21,8 @@ public class PlayerChipCollection extends ChipCollection {
     /**
      * Assigns player data to a ChipCollection.
      *
-     * @param amount the amount of starting chips in the collection
-     * @param id     the player's id
+     * @param amount The amount of starting chips in the collection
+     * @param id     The player's id
      */
     public PlayerChipCollection(int amount, int id) {
         super(amount);

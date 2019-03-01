@@ -73,9 +73,7 @@ public class Card implements Serializable, CardSlot {
          */
     }
 
-    /**
-     * instance vars
-     */
+    /** instance variables */
     private Suit suit;
     private Rank rank;
 
@@ -109,7 +107,7 @@ public class Card implements Serializable, CardSlot {
         return suit;
     }
 
-    /**
+    /** toString
      * @return a String representing a card
      */
     @Override

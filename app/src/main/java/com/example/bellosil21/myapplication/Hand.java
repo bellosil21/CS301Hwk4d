@@ -12,10 +12,10 @@ import java.io.Serializable;
  */
 public class Hand implements Serializable {
 
-    // declares the cards in a player's hand
+    //Declares the cards in a player's hand
     private CardSlot hole1;
     private CardSlot hole2;
-    // determines if other players can see this player's cards
+    //Determines if other players can see this player's cards
     private boolean showCards;
 
     /**
@@ -41,7 +41,6 @@ public class Hand implements Serializable {
 
     /**
      * Sets the boolean value if the cards are to be shown.
-     *
      * @param isShown - boolean if the cards are to be shown
      */
     public void setShowCards(boolean isShown) {

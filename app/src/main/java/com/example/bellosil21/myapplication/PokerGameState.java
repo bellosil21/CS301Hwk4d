@@ -13,9 +13,7 @@ import java.util.ArrayList;
  */
 public class PokerGameState implements Serializable {
 
-    /**
-     * instance vars
-     */
+    /** instance variables */
     // all cards in deck
     private Deck playingDeck;
     // array of Players hand
@@ -26,8 +24,7 @@ public class PokerGameState implements Serializable {
     // current round
     private int roundNumber;
     // place holder to define who has BB, SB, and first better and a number
-    // between
-    // 0 and number of players minus 1
+    // between 0 and number of players minus 1
     private int dealerID;
 
     // current small blind betting amount
@@ -43,10 +40,7 @@ public class PokerGameState implements Serializable {
     // tracks whose turn it is
     private TurnTracker turn;
 
-
-    /**
-     * constants
-     */
+    /** constants */
     private static final int INIT_ROUND_NUM = 1;
 
     /**
@@ -190,7 +184,6 @@ public class PokerGameState implements Serializable {
         if (turn.getActivePlayerID() != playerID) {
             return false;
         }
-
         if (bets.raiseBet(playerID, amount)) {
             turn.nextTurn();
             return true;
@@ -208,11 +201,9 @@ public class PokerGameState implements Serializable {
         if (turn.getActivePlayerID() != playerID) {
             return false;
         }
-
         playersChips.get(playerID).setHasFolded(true);
         turn.nextTurn();
 
-        // player's hasFolded to true
         return true;
     }
 
@@ -296,5 +287,4 @@ public class PokerGameState implements Serializable {
     public void deal() {
         playingDeck.dealPlayers(hands);
     }
-
 }

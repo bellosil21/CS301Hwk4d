@@ -38,7 +38,7 @@ public class Deck implements Serializable {
     }
 
     /**
-     * Copy constsructor
+     * Copy constructor
      * Copies all cards in the deck into a new deck.
      *
      * @param toCopy the Deck to copy
@@ -50,7 +50,6 @@ public class Deck implements Serializable {
             deckOfCards.add(new Card(c));
         }
     }
-
 
     /**
      * Deals all hands the top card in the deck. A card is dealt by removing

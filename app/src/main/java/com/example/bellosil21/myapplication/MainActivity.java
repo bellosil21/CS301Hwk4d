@@ -123,6 +123,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             gameState.append("\n\n\nSecond and fourth game state information " +
                     "is identical.");
         }
-        // random playerIDs from 0 to 3 (4 players)
     }
 }
