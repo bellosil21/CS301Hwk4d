@@ -9,7 +9,6 @@ package com.example.bellosil21.myapplication;
  * @author Gabe Marcial
  */
 public interface CardSlot {
-
     //This interface is a place holder for cards.
 
 }

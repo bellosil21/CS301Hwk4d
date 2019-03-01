@@ -14,25 +14,25 @@ import java.util.ArrayList;
 public class PokerGameState implements Serializable {
 
     /** instance vars */
-    // All cards in deck
+    // all cards in deck
     private Deck playingDeck;
-    //Array of Players hand
+    // array of Players hand
     private ArrayList<Hand> hands;
-    // Array of Cards shared for community
+    // array of Cards shared for community
     private ArrayList<Card> communityCards;
 
-    // Current round
+    // current round
     private int roundNumber;
-    // Place holder to define who has BB, SB, and first better and a number between
+    // place holder to define who has BB, SB, and first better and a number between
     // 0 and number of players minus 1
     private int dealerID;
 
-    // Current small blind betting amount
+    // current small blind betting amount
     private int smallBlind;
-    // Current big blind betting amount
+    // current big blind betting amount
     private int bigBlind;
 
-    // Array of chip amount for players
+    // array of chip amount for players
     private ArrayList<PlayerChipCollection> playersChips;
 
     // tracks the pot and maximum bet
@@ -252,7 +252,7 @@ public class PokerGameState implements Serializable {
 
     /**
      *
-     * checks to see if it is the current player's turn. If it is an instance of the player's
+     * Checks to see if it is the current player's turn. If it is an instance of the player's
      * chip amount is set to the integer bets. Then the player's chip amount is removed from
      * their personal pot and is placed as a bet.
      * @param playerID  the ID of the player
@@ -279,7 +279,7 @@ public class PokerGameState implements Serializable {
 
 
     /**
-     * Give players their cards
+     * Give players their cards.
      */
     public void deal() {
         playingDeck.dealPlayers(hands);

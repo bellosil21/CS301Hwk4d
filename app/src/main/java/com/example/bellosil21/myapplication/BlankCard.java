@@ -10,8 +10,10 @@ package com.example.bellosil21.myapplication;
  */
 public class BlankCard implements CardSlot {
 
-    // With the exception of the toString, there are no instance variables or methods in this class
-    // since a BlankCard contains no details of a Card.
+    /**
+     * With the exception of the toString, there are no instance variables or methods in this class
+     * since a BlankCard contains no details of a Card.
+     */
 
     public BlankCard() {
     }

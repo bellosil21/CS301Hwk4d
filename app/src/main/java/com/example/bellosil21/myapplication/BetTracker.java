@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author Gabe Marcial
  */
 public class BetTracker {
-    //all player chip collections
+    // all player chip collections
     private ArrayList<PlayerChipCollection> players;
     // the maximum bet that has taken place before everyone has called in
     // order to move on to the next playing phase

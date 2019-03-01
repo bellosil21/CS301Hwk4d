@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // number of players
     public static final int NUM_PLAYERS = 4;
 
-    //max number of players is 4
+    // max number of players is 4
     public int[] playerID = {0,1,2,3};
 
     /**
