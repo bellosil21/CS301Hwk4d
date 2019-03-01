@@ -29,7 +29,7 @@ public class ChipCollection implements Serializable{
     }
 
     /**
-     * Gets the amount of chips a player has
+     * Gets the amount of chips a player has.
      *
      * @return The amount of Chips a Player has
      */

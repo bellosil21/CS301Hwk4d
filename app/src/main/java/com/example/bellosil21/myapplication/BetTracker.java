@@ -115,7 +115,6 @@ public class BetTracker {
                 p.setHasCalled(false);
             }
         }
-
         players.get(playerID).setHasCalled(true);
     }
 

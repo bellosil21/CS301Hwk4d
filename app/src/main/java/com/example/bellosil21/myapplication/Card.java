@@ -3,7 +3,7 @@ package com.example.bellosil21.myapplication;
 import java.io.Serializable;
 
 /**
- * Defines a playing card, which is composed of a suit and rank
+ * Defines a playing card, which is composed of a suit and rank.
  *
  * @author Patrick Bellosillo
  * @author Jordan Ho

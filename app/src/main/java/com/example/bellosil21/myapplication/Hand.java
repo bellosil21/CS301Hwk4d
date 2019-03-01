@@ -19,7 +19,7 @@ public class Hand implements Serializable{
     private boolean showCards;
 
     /**
-     * Initializes a hand to have two blank cards
+     * Initializes a hand to have two blank cards.
      */
     public Hand(){
         this.hole1 = new BlankCard();
@@ -40,7 +40,7 @@ public class Hand implements Serializable{
     }
 
     /**
-     * Sets the boolean value if the cards are to be shown
+     * Sets the boolean value if the cards are to be shown.
      *
      * @param isShown - boolean if the cards are to be shown
      */

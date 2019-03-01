@@ -11,15 +11,15 @@ package com.example.bellosil21.myapplication;
 public class PlayerChipCollection extends ChipCollection {
 
     private int playerID;
-    //whether or not the player has folded
+    // whether or not the player has folded
     private boolean hasFolded;
-    //whether or not the player has called
+    // whether or not the player has called
     private boolean hasCalled;
     // to keep track of most recent bet in case of a raise
     private int lastBet;
 
     /**
-     * Assigns player data to a ChipCollection
+     * Assigns player data to a ChipCollection.
      *
      * @param amount    the amount of starting chips in the collection
      * @param id    the player's id
@@ -44,7 +44,7 @@ public class PlayerChipCollection extends ChipCollection {
     }
 
     /**
-     * Returns the truth value of if the player has folded
+     * Returns the truth value of if the player has folded.
      *
      * @return
      */
@@ -53,7 +53,7 @@ public class PlayerChipCollection extends ChipCollection {
     }
 
     /**
-     * Sets the player status to fold status
+     * Sets the player status to fold status.
      *
      * @param hasFolded - truth value of player's folded status
      */
@@ -62,7 +62,7 @@ public class PlayerChipCollection extends ChipCollection {
     }
 
     /**
-     * Returns the truth value of if the player has called
+     * Returns the truth value of if the player has called.
      *
      * @return true if the player has called. Otherwise, false
      */
@@ -71,7 +71,7 @@ public class PlayerChipCollection extends ChipCollection {
     }
 
     /**
-     * Sets the truth value of if the player has called
+     * Sets the truth value of if the player has called.
      *
      * @param hasCalled - Truth value of the player's status
      */
@@ -88,7 +88,7 @@ public class PlayerChipCollection extends ChipCollection {
     }
 
     /**
-     * Prints the status of the game
+     * Prints the status of the game.
      *
      * @return the string describing status of player action
      */

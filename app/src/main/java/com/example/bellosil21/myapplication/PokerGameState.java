@@ -119,7 +119,7 @@ public class PokerGameState implements Serializable {
     }
 
     /**
-     * Description of a game state
+     * Description of a game state.
      *
      * @return a string that contains the description of the game state.
      */
@@ -203,7 +203,7 @@ public class PokerGameState implements Serializable {
         playersChips.get(playerID).setHasFolded(true);
         turn.nextTurn();
 
-        // player's hasFolded to true.
+        // player's hasFolded to true
         return true;
     }
 

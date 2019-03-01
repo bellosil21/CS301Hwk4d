@@ -1,7 +1,7 @@
 package com.example.bellosil21.myapplication;
 
 /**
- * To represent a blank/hidden.
+ * To represent a blank/hidden card.
  *
  * @author Patrick Bellosillo
  * @author Jordan Ho
