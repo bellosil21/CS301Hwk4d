@@ -21,7 +21,7 @@ public class Card implements Serializable, CardSlot {
         CLUBS,
         HEART;
 
-        public static final int numOfSuits = 4;
+        public static final int NUM_OF_SUITS = 4;
 
         @Override
         public String toString(){
@@ -48,7 +48,7 @@ public class Card implements Serializable, CardSlot {
         KING(12),
         ACE(13);
 
-        public static final int numOfRanks = 13;
+        public static final int NUM_OF_RANKS = 13;
         private int numVal;
 
         Rank(int numVal){

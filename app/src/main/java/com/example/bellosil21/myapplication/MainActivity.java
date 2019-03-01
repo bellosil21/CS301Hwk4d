@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //max number of players is 4
     public int[] playerID = {0,1,2,3};
 
+    /**
+     * Get the button and set its OnClickListener
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             runTest.setOnClickListener(this);
     }
 
+    /**
+     * Running a test of the PokerGameState:
+     *  - firstInstance and the thirdInstance are the default creation of a PokerGameState
+     *  - secondInstance is a copy of the firstInstance in the view of the first player
+     *  (player[0]).
+     *  - fourthInstance is a copy of the thirdInstance in the  view of the first player
+     *  - Every action of the firstInstance is ran with different possibilities of players. The
+     *  result of the action (true or false) is printed to the text view with a description of
+     *  the action. Hence, an invalid action is due to a player taking an action out of turn, an
+     *  invalid bet, or an invalid check.
+     *  - A boolean comparing the secondInstance and fourthInstance is printed. They should be
+     *  equal since they were copied when the originals were at the default PokerGameState.
+     */
     @Override
     public void onClick(View v) {
         gameState.setText("");
