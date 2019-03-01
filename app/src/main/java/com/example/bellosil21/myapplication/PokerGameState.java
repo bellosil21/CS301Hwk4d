@@ -78,41 +78,6 @@ public class PokerGameState implements Serializable {
     }
 
     /**
-     * Copy Constructor
-     * Deep copy of current game state.
-     *
-     * @param toCopy    the PokerGameState to copy
-     */
-    public PokerGameState(PokerGameState toCopy) {
-        playingDeck = new Deck(toCopy.playingDeck);
-
-        hands = new ArrayList<Hand>();
-        for (Hand h : toCopy.hands) {
-            hands.add(new Hand(h));
-        }
-
-        communityCards = new ArrayList<Card>();
-        for (Card c : toCopy.communityCards) {
-            communityCards.add(new Card(c));
-        }
-
-        roundNumber = toCopy.roundNumber;
-        dealerID = toCopy.dealerID;
-
-        smallBlind = toCopy.smallBlind;
-        bigBlind = toCopy.bigBlind;
-
-        playersChips = new ArrayList<PlayerChipCollection>();
-        for (PlayerChipCollection cc : toCopy.playersChips) {
-            playersChips.add(new PlayerChipCollection(cc));
-        }
-
-        bets = new BetTracker(toCopy.bets);
-
-        turn = new TurnTracker(toCopy.turn);
-    }
-
-    /**
      * Copy Constructor that only gives players their hand and does not give them the deck. All
      * other instance vars are given.
      *
@@ -122,9 +87,15 @@ public class PokerGameState implements Serializable {
     public PokerGameState(PokerGameState toCopy, int playerID) {
         playingDeck = null;
 
+        // only pass the player their hand or the hand's showCards is true; otherwise, pass blank
+        // hands for the other players
         hands = new ArrayList<Hand>();
-        for (Hand h : toCopy.hands) {
-            hands.add(new Hand(h));
+        for (int i = 0; i < toCopy.hands.size(); i++) {
+            if (i == playerID || toCopy.hands.get(i).isShowCards()) {
+                hands.add(new Hand(toCopy.hands.get(i)));
+            } else {
+                hands.add(new Hand());
+            }
         }
 
         communityCards = new ArrayList<Card>();
@@ -155,9 +126,9 @@ public class PokerGameState implements Serializable {
     @Override
     public String toString() {
         // creates toReturn string variable
-        String toReturn = "";
+        String toReturn = "\nPoker Game State:\n";
         if(playingDeck == null){
-            toReturn += "The deck is hidden";
+            toReturn += "The deck of the game is hidden";
         }
         else{
             toReturn = playingDeck.toString();
@@ -168,7 +139,7 @@ public class PokerGameState implements Serializable {
             toReturn += "\nPlayer " + (i + 1) + "'s Hand: " + hands.get(i).toString();
         }
         // states which community cards are currently on the table
-        toReturn += "\n\nCommunity Cards:";
+        toReturn += "\nCommunity Cards:";
         // iterates through the community cards array and prints them out
         if (communityCards.size() == 0) {
             toReturn += " No community cards have been dealt.";
