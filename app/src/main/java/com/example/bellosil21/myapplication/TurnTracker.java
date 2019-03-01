@@ -10,9 +10,9 @@ import java.util.ArrayList;
  * @author Gabe Marcial
  */
 public class TurnTracker {
-    // the amount of players in the game
+    //The amount of players in the game
     private ArrayList<PlayerChipCollection> players;
-    // a player ID to track the current player's turn 0 <= activePlayerID < players.size()
+    //A player ID to track the current player's turn 0 <= activePlayerID < players.size()
     private int activePlayerID;
 
     /**

@@ -21,6 +21,12 @@ public class BetTracker {
     // sets default pot size to 0
     public static final int DEFAULT_POT_SIZE = 0;
 
+    /** BetTracker Constructor
+     *
+     * @param players Takes in an array list of PlayerChip collection
+     *                which is used to keep track of the players in the
+     *                current game and the amount in the pot.
+     */
     public BetTracker(ArrayList<PlayerChipCollection> players) {
         this.players = players;
         this.pot = new ChipCollection(DEFAULT_POT_SIZE);

@@ -13,37 +13,36 @@ import java.util.ArrayList;
  */
 public class PokerGameState implements Serializable {
 
-    /** instance vars */
-    // all cards in deck
+    /** instance variables */
+    //All cards in deck
     private Deck playingDeck;
-    // array of Players hand
+    //Array of Players hand
     private ArrayList<Hand> hands;
-    // array of Cards shared for community
+    //Array of Cards shared for community
     private ArrayList<Card> communityCards;
 
-    // current round
+    //Current round
     private int roundNumber;
-    // place holder to define who has BB, SB, and first better and a number between
-    // 0 and number of players minus 1
+    //Place holder to define who has BB, SB, and first better and a number between
+    //0 and number of players minus 1
     private int dealerID;
 
-    // current small blind betting amount
+    //Current small blind betting amount
     private int smallBlind;
-    // current big blind betting amount
+    //Current big blind betting amount
     private int bigBlind;
 
-    // array of chip amount for players
+    //Array of chip amount for players
     private ArrayList<PlayerChipCollection> playersChips;
 
-    // tracks the pot and maximum bet
+    //tracks the pot and maximum bet
     private BetTracker bets;
-    // tracks whose turn it is
+    //tracks whose turn it is
     private TurnTracker turn;
-
-
 
     /** constants */
     private static final int INIT_ROUND_NUM = 1;
+
 
     /**
      * Creates and initialize a new PokerGameState from given options.
@@ -181,7 +180,6 @@ public class PokerGameState implements Serializable {
         if (turn.getActivePlayerID() != playerID) {
             return false;
         }
-
         if (bets.raiseBet(playerID, amount)) {
             turn.nextTurn();
             return true;
@@ -199,11 +197,9 @@ public class PokerGameState implements Serializable {
         if (turn.getActivePlayerID() != playerID){
             return false;
         }
-
         playersChips.get(playerID).setHasFolded(true);
         turn.nextTurn();
 
-        // player's hasFolded to true
         return true;
     }
 
@@ -284,5 +280,4 @@ public class PokerGameState implements Serializable {
     public void deal() {
         playingDeck.dealPlayers(hands);
     }
-
 }

@@ -18,8 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int STARTING_BIG = 50;
     // number of players
     public static final int NUM_PLAYERS = 4;
-
-    // max number of players is 4
+    //max number of players is 4
     public int[] playerID = {0,1,2,3};
 
     /**
@@ -100,6 +99,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(second.equals(fourth)){
             gameState.append("\n\n\nSecond and fourth game state information is identical.");
         }
-        // random playerIDs from 0 to 3 (4 players)
     }
 }
